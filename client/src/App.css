@@ -1,0 +1,63 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 20px;
+  background-color: lightblue;
+}
+
+/* Style for the <a> tags */
+a {
+  text-decoration: none; /* Remove underline */
+  color: #0f72d5; /* Set text color */
+  padding: 8px 16px; /* Add padding */
+  margin-right: 16px; /* Add margin to separate links */
+  transition: color 0.3s ease; /* Add transition effect */
+  font-family: bold;
+  font-size: 1.5rem;
+}
+
+/* Style for the <a> tags on hover */
+a:hover {
+  color: #666; /* Change text color on hover */
+}
+
+/* Style for the active <a> tag */
+a.active {
+  font-weight: bold; /* Make the active link bold */
+  color: #000; /* Change text color for active link */
+}
+
+
+/* Style for the select element */
+select {
+  padding: 8px; /* Add padding */
+  font-size: 16px; /* Set font size */
+  border: 1px solid #ccc; /* Add border */
+  border-radius: 4px; /* Add border radius */
+  background-color: #fff; /* Set background color */
+  color: #333; /* Set text color */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Add transition effect */
+}
+
+/* Style for the select element on hover */
+select:hover {
+  border-color: #666; /* Change border color on hover */
+}
+
+/* Style for the select element when focused */
+select:focus {
+  outline: none; /* Remove outline */
+  border-color: #666; /* Change border color when focused */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add box shadow when focused */
+}

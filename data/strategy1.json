@@ -1,0 +1,16 @@
+[
+  {
+    "id": "100405c5-8f50-4f99-8e44-afaa132b31ce",
+    "date": "2024-05-21",
+    "entryPrice": "114.12",
+    "exitPrice": "106.12",
+    "quantity": 50
+  },
+  {
+    "id": "0d700964-fbee-4ceb-bcca-b6d305d1723a",
+    "date": "2024-05-21",
+    "entryPrice": "104.23",
+    "exitPrice": "102.10",
+    "quantity": 75
+  }
+]
