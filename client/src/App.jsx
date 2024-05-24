@@ -3,6 +3,7 @@ import TradeList from './assets/components/TradeList';
 import PerformanceMetrics from './assets/components/PerformanceMetrics';
 import MaximumLossProfit from './assets/components/MaximumLossProfit';
 import TradeForm from './assets/components/TradeForm';
+import DonutChart from './assets/components/DonutChart';
 import axios from 'axios';
 import './App.css';
 
@@ -54,6 +55,7 @@ function App() {
             <TradeList trades={strategyData} selectedStrategy={selectedStrategy} setTrades={setStrategyData}/>
             <PerformanceMetrics trades={strategyData} />
             <MaximumLossProfit trades={strategyData} />
+            <DonutChart  title={"All Strategies Data"} />
           </>
         )}
       </div>

@@ -1,24 +1,8 @@
-import React,{useState,useEffect} from 'react';
+import React from 'react';
 import '../css/performanceMetrics.css'
-import axios from 'axios';
+
 
 function PerformanceMetrics({trades}) {
-
-  // const [trades, setTrades] = useState([]);
-
-  // const fetchTrades = async () => {
-  //   try {
-  //     const response = await axios.get('/api/trades');
-  //     setTrades(response.data);
-      
-  //   } catch (error) {
-  //     console.error('Error fetching trades:', error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   fetchTrades();
-  // }, []);
 
   if (!trades || trades.length === 0) return null;
   const totalTrades = trades.length;

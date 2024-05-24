@@ -11,7 +11,7 @@ function TradeList({ trades, selectedStrategy, setTrades }) {
   const calculateCumulativePL = () => {
     let cumulativePL = 0;
     return trades.map((trade) => {
-      const profitLoss = (trade.exitPrice - trade.entryPrice) * parseInt(trade.quantity);
+      const profitLoss = parseFloat(((trade.exitPrice - trade.entryPrice) * parseInt(trade.quantity)).toFixed(2));
       cumulativePL += profitLoss;
       return { ...trade, profitLoss, cumulativePL };
     });
@@ -43,7 +43,7 @@ function TradeList({ trades, selectedStrategy, setTrades }) {
             label: 'Cumulative Profit/Loss',
             data: cumulativePLData,
             fill: false,
-            borderColor: 'rgb(75, 192, 192)',
+            borderColor: 'rgb(75, 112, 192)',
             tension: 0.1,
           },
         ],
