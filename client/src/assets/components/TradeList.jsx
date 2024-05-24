@@ -38,7 +38,7 @@ function TradeList({ trades, selectedStrategy, setTrades }) {
       type: 'line',
       data: {
         labels: dates,
-        datasets: [
+        datasets: [ 
           {
             label: 'Cumulative Profit/Loss',
             data: cumulativePLData,

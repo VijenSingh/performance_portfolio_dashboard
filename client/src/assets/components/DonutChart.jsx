@@ -22,7 +22,7 @@ const DonutChart = ({  title }) => {
         } catch (error) {
           console.error('Error fetching trade data:', error);
         }
-      };
+      }; 
 
       useEffect(() => {
         fetchDataForStrategy('strategy1');

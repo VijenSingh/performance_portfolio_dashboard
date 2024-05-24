@@ -13,7 +13,7 @@ function PerformanceMetrics({trades}) {
   
   const averageProfit = totalProfit / totalTrades;
 
-  return (
+  return ( 
     <div className="performance-metrics">
       <h2>Performance Metrics</h2>
       <p>Total Trades: {totalTrades}</p>

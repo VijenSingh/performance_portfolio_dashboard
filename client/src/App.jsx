@@ -16,7 +16,7 @@ function App() {
   const handleStrategySelect = (strategy) => {
     setSelectedStrategy(strategy);
   };
-
+ 
   useEffect(() => {
     fetchDataForStrategy(selectedStrategy);
   }, [selectedStrategy]);
