@@ -215,5 +215,26 @@
     "entryPrice": "16.5",
     "exitPrice": "69.85",
     "quantity": 30
+  },
+  {
+    "id": "fde4cbfe-971d-4ce5-87e1-4b91d4b56c90",
+    "date": "2024-05-23",
+    "entryPrice": "338.8",
+    "exitPrice": "239.7",
+    "quantity": 75
+  },
+  {
+    "id": "b8a7388f-a896-4483-a1c1-36d84420512f",
+    "date": "2024-05-24",
+    "entryPrice": "346",
+    "exitPrice": "267.85",
+    "quantity": 75
+  },
+  {
+    "id": "615ab412-0760-4eea-94b4-8a9e21297a0d",
+    "date": "2024-05-27",
+    "entryPrice": "269.8",
+    "exitPrice": "448.9",
+    "quantity": 75
   }
 ]

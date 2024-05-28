@@ -40,5 +40,22 @@
     "entryPrice": "108.65",
     "exitPrice": "100.2",
     "quantity": 25
+  },
+  {
+    "id": "41e851ab-5178-4e95-a148-c3d91509ec3f",
+    "date": "2024-05-27",
+    "entryPrice": "102.35",
+    "exitPrice": "133.75",
+    "quantity": 25
+  },
+  {
+    "id": "a6e4d9e2-56c0-4428-a7b4-10183c8015d3",
+    "date": "2024-05-27",
+    "entryPrice": "100",
+    "exitPrice": "89",
+    "quantity": 25,
+    "profitLoss": -272.5,
+    "cumulativePL": -274.5,
+    "selectedStrategy": "strategy1"
   }
 ]

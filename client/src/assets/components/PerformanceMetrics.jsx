@@ -1,5 +1,6 @@
 import React from 'react';
 import '../css/performanceMetrics.css'
+import Portfolio from './Portfolio';
 
 
 function PerformanceMetrics({trades}) {
@@ -19,6 +20,7 @@ function PerformanceMetrics({trades}) {
       <p>Total Trades: {totalTrades}</p>
       <p>Total Profit: {totalProfit.toFixed(2)}</p>
       <p>Average Profit per Trade: {averageProfit.toFixed(2)}</p>
+      <Portfolio investment = {140000}/>
     </div>
   );
 }

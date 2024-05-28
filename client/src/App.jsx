@@ -43,9 +43,11 @@ function App() {
       </header>
       <label>Select Strategy:</label>
       <select value={selectedStrategy} name="strategy" onChange={handleChange}>
-        <option value="strategy1">Strategy 1</option>
-        <option value="strategy2">Strategy 2</option>
-        <option value="strategy3">Strategy 3</option>
+        <option value="strategy1">Spiner NF</option>
+        <option value="strategy2">RSI OP Buying</option>
+        <option value="strategy3">Brahmastra</option>
+        <option value="strategy4">Golden Cross</option>
+        <option value="strategy5">NF Supertrend</option>
       </select>
       <div className="container">
         {selectedTab === "dataForm" ? (
