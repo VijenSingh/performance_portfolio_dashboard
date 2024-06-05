@@ -13,9 +13,9 @@ function App() {
   const [selectedTab, setSelectedTab] = useState('dataForm');
   const [strategyData, setStrategyData] = useState([]);
 
-  const handleStrategySelect = (strategy) => {
-    setSelectedStrategy(strategy);
-  };
+  // const handleStrategySelect = (strategy) => {
+  //   setSelectedStrategy(strategy);
+  // };
  
   useEffect(() => {
     fetchDataForStrategy(selectedStrategy);
@@ -41,14 +41,16 @@ function App() {
         <a href='#' onClick={() => setSelectedTab('dashboard')}>Dashboard</a>
         <a href='#' onClick={() => setSelectedTab('dataForm')}>DataForm</a>
       </header>
-      <label>Select Strategy:</label>
-      <select value={selectedStrategy} name="strategy" onChange={handleChange}>
-        <option value="strategy1">Spiner NF</option>
-        <option value="strategy2">RSI OP Buying</option>
-        <option value="strategy3">Brahmastra</option>
-        <option value="strategy4">Golden Cross</option>
-        <option value="strategy5">NF Supertrend</option>
-      </select>
+      <div className="strategy-selector">
+        <label htmlFor="strategy">Select Strategy:</label>
+        <select id="strategy" value={selectedStrategy} name="strategy" onChange={handleChange}>
+          <option value="strategy1">Spiner NF</option>
+          <option value="strategy2">RSI OP Buying</option>
+          <option value="strategy3">Brahmastra</option>
+          <option value="strategy4">Golden Cross</option>
+          <option value="strategy5">NF Supertrend</option>
+        </select>
+      </div>
       <div className="container">
         {selectedTab === "dataForm" ? (
           <TradeForm onAddTrade={() => fetchDataForStrategy(selectedStrategy)} selectedStrategy={selectedStrategy} />

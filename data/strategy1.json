@@ -57,5 +57,89 @@
     "profitLoss": -272.5,
     "cumulativePL": -274.5,
     "selectedStrategy": "strategy1"
+  },
+  {
+    "id": "321e5f77-e28a-47af-844b-a2f0c99cec01",
+    "date": "2024-05-28",
+    "entryPrice": "101.2",
+    "exitPrice": "94.3",
+    "quantity": 25
+  },
+  {
+    "id": "d09ff65d-b495-4b11-b9f7-746125746278",
+    "date": "2024-05-28",
+    "entryPrice": "102.8",
+    "exitPrice": "91.25",
+    "quantity": 25
+  },
+  {
+    "id": "e63635d0-a8cc-4469-9400-0091b1cc9d62",
+    "date": "2024-05-28",
+    "entryPrice": "102.7",
+    "exitPrice": "102.6",
+    "quantity": 25
+  },
+  {
+    "id": "d5575164-269f-4348-9e18-3d23efe770da",
+    "date": "2024-05-29",
+    "entryPrice": "103.80",
+    "exitPrice": "98.15",
+    "quantity": 25
+  },
+  {
+    "id": "3cfbe710-3bc0-4954-899c-fbf9ddd4aa53",
+    "date": "2024-05-29",
+    "entryPrice": "100.95",
+    "exitPrice": "127.05",
+    "quantity": 25
+  },
+  {
+    "id": "5036f9e7-4e0e-4eb2-b725-40c3cd18d23b",
+    "date": "2024-05-30",
+    "entryPrice": "106",
+    "exitPrice": "94.80",
+    "quantity": 25
+  },
+  {
+    "id": "7f917ac8-2851-48b2-8b80-34433197f904",
+    "date": "2024-05-30",
+    "entryPrice": "99.70",
+    "exitPrice": "129.25",
+    "quantity": 25
+  },
+  {
+    "id": "d290d382-fcc1-4cbf-b524-e279da43edb1",
+    "date": "2024-06-03",
+    "entryPrice": "100.3",
+    "exitPrice": "105.6",
+    "quantity": 25
+  },
+  {
+    "id": "bf8a7e1c-dd91-4b18-af6a-3f5f00e6804c",
+    "date": "2024-06-03",
+    "entryPrice": "96.55",
+    "exitPrice": "88.45",
+    "quantity": 25
+  },
+  {
+    "id": "51239854-7262-4409-9ebc-9a5515e43b29",
+    "date": "2024-06-03",
+    "entryPrice": "99.65",
+    "exitPrice": "105.35",
+    "quantity": 25
+  },
+  {
+    "id": "d863bce2-7b59-4335-a52d-d7e31267b3e0",
+    "date": "2024-06-03",
+    "entryPrice": "95.45",
+    "exitPrice": "88.5",
+    "quantity": 25
+  },
+  {
+    "id": "9db3a6c3-e9f0-4e5a-8ea2-49e02dbd2144",
+    "date": "2024-06-04",
+    "entryPrice": "97.4",
+    "exitPrice": "118.45",
+    "quantity": 25
   }
 ]

@@ -62,3 +62,25 @@ select:focus {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add box shadow when focused */
 }
 
+.strategy-selector {
+  margin: 20px;
+}
+
+.strategy-selector label {
+  font-size: 18px;
+  margin-right: 10px;
+  color: #333;
+}
+
+.strategy-selector select {
+  font-size: 16px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+.strategy-selector select:focus {
+  border-color: #61dafb;
+  outline: none;
+}

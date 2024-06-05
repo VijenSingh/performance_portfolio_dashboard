@@ -17,11 +17,53 @@ const Portfolio = ({investment}) => {
 
   return (
     <div>
-      <h2>Portfolio Summary</h2>
-      <p>Total Profit/Loss: {totalProfitLoss.toFixed(2)}</p>
-      <p>Percentage Return: {percentageReturn}%</p>
+      <h2 style={styles.header}>Portfolio Summary</h2>
+      <p>Total Profit/Loss: <span style={styles.profitText}>₹{totalProfitLoss.toFixed(2)}</span></p>
+      <p>Percentage Return: <span style={styles.profitText}>{percentageReturn}%</span></p>
     </div>
   );
 };
+
+
+const styles = {
+  outerContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    marginTop: '50px',
+    padding: '20px',
+  },
+  container: {
+    width: '100%',
+    maxWidth: '600px',
+    padding: '20px',
+    textAlign: 'center',
+    backgroundColor: '#fff',
+    borderRadius: '10px',
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+    marginBottom: '20px',
+  },
+  header: {
+    fontSize: '28px',
+    fontWeight: 'bold',
+    color: '#333',
+    marginBottom: '20px',
+  },
+  portfolioContainer: {
+    width: '100%',
+    maxWidth: '600px',
+    padding: '20px',
+    textAlign: 'center',
+    backgroundColor: '#fff',
+    borderRadius: '10px',
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+  },
+  profitText: {
+    fontSize: '18px',
+    fontWeight: 'bold',
+    color: '#1a8e5f',
+  },
+};
+
 
 export default Portfolio;
