@@ -3,18 +3,21 @@ import useAllStrategiesData from './UseAllStrategiesData';
 
 const Portfolio = ({investment}) => {
   const data = useAllStrategiesData();
-
   // Sum the final cumulative profit/loss of all strategies
   const totalProfitLoss =
-    data.Spiner_NF +
+    data.Sniper_NF +
     data.RSI_OP_Buying +
     data.Brahmastra +
     data.Golden_Cross +
-    data.NF_Supertrend;
+    data.NF_Supertrend+
+    data.Suprita +
+    data.Shambhu +
+    data.Mahabuddhi +
+    data.Vasuki +
+    data.Delta_Netural;
 
   // Calculate the percentage return
   const percentageReturn = ((totalProfitLoss / investment) * 100).toFixed(2);
-
   return (
     <div>
       <h2 style={styles.header}>Portfolio Summary</h2>

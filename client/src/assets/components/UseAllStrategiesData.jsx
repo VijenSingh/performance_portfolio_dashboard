@@ -4,11 +4,18 @@ import axios from 'axios';
 
 const UseAllStrategiesData = () => {
   const [data, setData] = useState({
-    Spiner_NF: 0,
+    Sniper_NF: 0,
     RSI_OP_Buying: 0,
     Brahmastra: 0,
     Golden_Cross: 0,
     NF_Supertrend: 0,
+    Suprita:0,
+    Shambhu:0,
+    Mahabuddhi:0,
+    Vasuki:0,
+    Delta_Netural:0
+
+
   });
 
   useEffect(() => {
@@ -19,6 +26,11 @@ const UseAllStrategiesData = () => {
         const response3 = await axios.get('/api/trades/strategy3');
         const response4 = await axios.get('/api/trades/strategy4');
         const response5 = await axios.get('/api/trades/strategy5');
+        const response6 = await axios.get('/api/trades/strategy6');
+        const response7 = await axios.get('/api/trades/strategy7');
+        const response8 = await axios.get('/api/trades/strategy8');
+        const response9 = await axios.get('/api/trades/strategy9');
+        const response10 = await axios.get('/api/trades/strategy10');
 
         // Calculate cumulative PL for each strategy
         const calculateCumulativePL = (trades) => {
@@ -33,11 +45,16 @@ const UseAllStrategiesData = () => {
         };
 
         setData({
-          Spiner_NF: calculateCumulativePL(response1.data),
+          Sniper_NF: calculateCumulativePL(response1.data),
           RSI_OP_Buying: calculateCumulativePL(response2.data),
           Brahmastra: calculateCumulativePL(response3.data),
           Golden_Cross: calculateCumulativePL(response4.data),
           NF_Supertrend: calculateCumulativePL(response5.data),
+          Suprita: calculateCumulativePL(response6.data),
+          Shambhu: calculateCumulativePL(response7.data),
+          Mahabuddhi: calculateCumulativePL(response8.data),
+          Vasuki: calculateCumulativePL(response9.data),
+          Delta_Netural: calculateCumulativePL(response10.data),
         });
       } catch (error) {
         console.error('Error fetching trade data:', error);

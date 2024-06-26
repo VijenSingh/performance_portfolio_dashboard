@@ -44,11 +44,17 @@ function App() {
       <div className="strategy-selector">
         <label htmlFor="strategy">Select Strategy:</label>
         <select id="strategy" value={selectedStrategy} name="strategy" onChange={handleChange}>
-          <option value="strategy1">Spiner NF</option>
+          <option value="strategy1">Sniper NF</option>
           <option value="strategy2">RSI OP Buying</option>
           <option value="strategy3">Brahmastra</option>
           <option value="strategy4">Golden Cross</option>
           <option value="strategy5">NF Supertrend</option>
+          <option value="strategy6">Suprita</option>
+          <option value="strategy7">Shambhu</option>
+          <option value="strategy8">Mahabuddhi</option>
+          <option value="strategy9">Vasuki</option>
+          <option value="strategy10">Delta Netural</option>
+
         </select>
       </div>
       <div className="container">

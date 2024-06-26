@@ -10,8 +10,8 @@ const DonutChart = ({  title }) => {
     datasets: [
       {
         data: Object.values(data).map(Number),
-        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56','#8fce00','#FF69B4'],
-        hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#8fce00', '#FF69B4'],
+        backgroundColor: ['#00FFFF', '#36A2EB', '#FFCE56','#8fce00','#FF69B4','#FF3C33','#581845 ','#4F5F52','#0A4949','#F1820C'],
+        hoverBackgroundColor: ['#00FFFF', '#36A2EB', '#FFCE56', '#8fce00', '#FF69B4','#FF3C33','#581845','#4F5F52','#0A4949','#F1820C'],
       },
     ],
   };

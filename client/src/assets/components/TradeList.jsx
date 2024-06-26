@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 import React, { useRef, useEffect, useState } from 'react';
 import Chart from 'chart.js/auto';
@@ -92,8 +91,38 @@ function TradeList({ trades, selectedStrategy, setTrades }) {
     setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
   };
 
+  const handlePageClick = (page) => {
+    setCurrentPage(page);
+  };
+
+  const renderPageNumbers = () => {
+    const pageNumbers = [];
+    for (let i = 1; i <= totalPages; i++) {
+      pageNumbers.push(i);
+    }
+
+    return pageNumbers.map((number) => {
+      if (number === 1 || number === totalPages || (number >= currentPage - 1 && number <= currentPage + 1)) {
+        return (
+          <button
+            key={number}
+            onClick={() => handlePageClick(number)}
+            className={number === currentPage ? 'active' : ''}
+          >
+            {number}
+          </button>
+        );
+      }
+
+      if (number === currentPage - 2 || number === currentPage + 2) {
+        return <span key={number}>...</span>;
+      }
+
+      return null;
+    });
+  };
+
   const handleDelete = async (id) => {
-  
     try {
       await axios.delete(`/api/trades/${id}?strategy=${selectedStrategy}`);
       setTrades((prevTrades) => prevTrades.filter((trade) => trade.id !== id));
@@ -116,7 +145,6 @@ function TradeList({ trades, selectedStrategy, setTrades }) {
     e.preventDefault();
     try {
       const updatedTrade = { ...editTrade, selectedStrategy };
-      
       const response = await axios.put(`/api/trades/${editTrade.id}`, updatedTrade);
       setTrades((prevTrades) =>
         prevTrades.map((trade) => (trade.id === editTrade.id ? response.data : trade))
@@ -144,8 +172,8 @@ function TradeList({ trades, selectedStrategy, setTrades }) {
           </tr>
         </thead>
         <tbody>
-          {currentTrades.map((trade, index) => (
-            <tr key={index}>
+          {currentTrades.map((trade) => (
+            <tr key={trade.id}>
               <td>{trade.date}</td>
               <td>{trade.entryPrice}</td>
               <td>{trade.exitPrice}</td>
@@ -164,7 +192,7 @@ function TradeList({ trades, selectedStrategy, setTrades }) {
         <button onClick={prevPage} disabled={currentPage === 1}>
           Previous
         </button>
-        <span>{currentPage}</span>
+        {renderPageNumbers()}
         <button onClick={nextPage} disabled={currentPage === totalPages}>
           Next
         </button>
