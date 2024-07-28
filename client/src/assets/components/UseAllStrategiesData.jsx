@@ -6,8 +6,8 @@ const UseAllStrategiesData = () => {
   const [data, setData] = useState({
     Sniper_NF: 0,
     RSI_OP_Buying: 0,
-    Brahmastra: 0,
-    Golden_Cross: 0,
+    Shambhu_Algo: 0,
+    Mahabuddi_Algo: 0,
     NF_Supertrend: 0,
     Suprita:0,
     Shambhu:0,
@@ -47,8 +47,8 @@ const UseAllStrategiesData = () => {
         setData({
           Sniper_NF: calculateCumulativePL(response1.data),
           RSI_OP_Buying: calculateCumulativePL(response2.data),
-          Brahmastra: calculateCumulativePL(response3.data),
-          Golden_Cross: calculateCumulativePL(response4.data),
+          Shambhu_Algo: calculateCumulativePL(response3.data),
+          Mahabuddi_Algo: calculateCumulativePL(response4.data),
           NF_Supertrend: calculateCumulativePL(response5.data),
           Suprita: calculateCumulativePL(response6.data),
           Shambhu: calculateCumulativePL(response7.data),

@@ -47,5 +47,85 @@
     "entryPrice": "204.35",
     "exitPrice": "245.7",
     "quantity": 25
+  },
+  {
+    "id": "1a69b7a5-e702-4735-8546-aba7b9b8ff76",
+    "date": "2024-06-27",
+    "entryPrice": "214.35",
+    "exitPrice": "186.1",
+    "quantity": 25
+  },
+  {
+    "id": "72c1dd8d-b68d-4bbe-abee-cc418e5c98e9",
+    "date": "2024-06-27",
+    "entryPrice": "187.35",
+    "exitPrice": "171.5",
+    "quantity": 25,
+    "profitLoss": 38191.25,
+    "cumulativePL": 37061.25,
+    "selectedStrategy": "strategy6"
+  },
+  {
+    "id": "774c259a-f756-4fb5-bac0-2e2db0596e8d",
+    "date": "2024-06-28",
+    "entryPrice": "184.45",
+    "exitPrice": "167.15",
+    "quantity": 25
+  },
+  {
+    "id": "304b34e5-f31d-4005-a8cf-f7cbde789a7c",
+    "date": "2024-07-02",
+    "entryPrice": "214.75",
+    "exitPrice": "183.65",
+    "quantity": 25
+  },
+  {
+    "id": "088d40bc-2dfd-4372-b75d-7eb940ab67c4",
+    "date": "2024-07-09",
+    "entryPrice": "194.7",
+    "exitPrice": "188.25",
+    "quantity": 25
+  },
+  {
+    "id": "fe6626b0-7d2b-4080-86fa-6c2d7f18efc3",
+    "date": "2024-07-12",
+    "entryPrice": "195.5",
+    "exitPrice": "145.05",
+    "quantity": 25
+  },
+  {
+    "id": "69bb5e76-a6c8-4786-bb28-f26008ea597f",
+    "date": "2024-07-12",
+    "entryPrice": "198.3",
+    "exitPrice": "238.5",
+    "quantity": 25
+  },
+  {
+    "id": "bde6185d-0b77-4ca1-a937-90ccc0c9ffee",
+    "date": "2024-07-12",
+    "entryPrice": "200.85",
+    "exitPrice": "200.6",
+    "quantity": 25
+  },
+  {
+    "id": "698b1047-11e1-4cef-873e-dec988f133f0",
+    "date": "2024-07-15",
+    "entryPrice": "184.95",
+    "exitPrice": "168.2",
+    "quantity": 25
+  },
+  {
+    "id": "c9ba6a77-cad6-4e07-9c67-110b39ea847c",
+    "date": "2024-07-18",
+    "entryPrice": "179.3",
+    "exitPrice": "242.6",
+    "quantity": 25
+  },
+  {
+    "id": "50fbc139-9a72-4638-bb68-dcd2a14a226f",
+    "date": "2024-07-26",
+    "entryPrice": "209.9",
+    "exitPrice": "336.15",
+    "quantity": 25
   }
 ]

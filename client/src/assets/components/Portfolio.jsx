@@ -7,8 +7,8 @@ const Portfolio = ({investment}) => {
   const totalProfitLoss =
     data.Sniper_NF +
     data.RSI_OP_Buying +
-    data.Brahmastra +
-    data.Golden_Cross +
+    data.Shambhu_Algo +
+    data.Mahabuddi_Algo +
     data.NF_Supertrend+
     data.Suprita +
     data.Shambhu +

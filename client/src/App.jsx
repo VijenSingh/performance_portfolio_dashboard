@@ -12,10 +12,6 @@ function App() {
   const [selectedStrategy, setSelectedStrategy] = useState('strategy1');
   const [selectedTab, setSelectedTab] = useState('dataForm');
   const [strategyData, setStrategyData] = useState([]);
-
-  // const handleStrategySelect = (strategy) => {
-  //   setSelectedStrategy(strategy);
-  // };
  
   useEffect(() => {
     fetchDataForStrategy(selectedStrategy);
@@ -46,8 +42,8 @@ function App() {
         <select id="strategy" value={selectedStrategy} name="strategy" onChange={handleChange}>
           <option value="strategy1">Sniper NF</option>
           <option value="strategy2">RSI OP Buying</option>
-          <option value="strategy3">Brahmastra</option>
-          <option value="strategy4">Golden Cross</option>
+          <option value="strategy3">Shambhu Algo</option>
+          <option value="strategy4">Mahabuddi Algo</option>
           <option value="strategy5">NF Supertrend</option>
           <option value="strategy6">Suprita</option>
           <option value="strategy7">Shambhu</option>

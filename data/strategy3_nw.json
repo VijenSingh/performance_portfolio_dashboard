@@ -1,0 +1,359 @@
+[
+  {
+    "id": "8a36128d-c413-4830-a377-0c5d84e19953",
+    "date": "2024-05-24",
+    "entryPrice": "299.15",
+    "exitPrice": "306.75",
+    "quantity": 50
+  },
+  {
+    "id": "57b8abd4-3a54-4057-bf31-bcd9c4365a7e",
+    "date": "2024-05-24",
+    "entryPrice": "247.3",
+    "exitPrice": "249.65",
+    "quantity": 50
+  },
+  {
+    "id": "78ee0e6c-013f-401b-a970-f723f3b884d6",
+    "date": "2024-05-27",
+    "entryPrice": "317.9",
+    "exitPrice": "286.55",
+    "quantity": 50
+  },
+  {
+    "id": "426c65af-2a12-4c20-acb1-538d83b1f63f",
+    "date": "2024-05-27",
+    "entryPrice": "202.35",
+    "exitPrice": "307.9",
+    "quantity": 50
+  },
+  {
+    "id": "d53fd973-79b6-4aaf-b812-ccff0ea20de7",
+    "date": "2024-05-28",
+    "entryPrice": "219.05",
+    "exitPrice": "188.6",
+    "quantity": 50
+  },
+  {
+    "id": "7b73aa07-c4e1-4859-8c2d-8ab68a558d1e",
+    "date": "2024-05-28",
+    "entryPrice": "267.4",
+    "exitPrice": "253.55",
+    "quantity": 50
+  },
+  {
+    "id": "f269d097-d1c2-4c42-8c11-c7e755de1098",
+    "date": "2024-05-28",
+    "entryPrice": "196.95",
+    "exitPrice": "205.55",
+    "quantity": 50
+  },
+  {
+    "id": "bd610621-aff9-416e-9a18-64dd60613928",
+    "date": "2024-05-29",
+    "entryPrice": "255.75",
+    "exitPrice": "218.4",
+    "quantity": 50
+  },
+  {
+    "id": "71d7ac94-3bea-46ff-81f1-611bbabe3b47",
+    "date": "2024-05-29",
+    "entryPrice": "270.9",
+    "exitPrice": "250.05",
+    "quantity": 50
+  },
+  {
+    "id": "ce0b0674-909a-49a5-b025-9e9a88306c02",
+    "date": "2024-05-29",
+    "entryPrice": "204",
+    "exitPrice": "216.35",
+    "quantity": 50
+  },
+  {
+    "id": "676c6f0f-b50a-4c7b-b21f-0dbddc8fa42b",
+    "date": "2024-05-30",
+    "entryPrice": "181.6",
+    "exitPrice": "165",
+    "quantity": 50
+  },
+  {
+    "id": "52230090-bfab-48e1-b459-1ec1022c6dd8",
+    "date": "2024-05-30",
+    "entryPrice": "193.1",
+    "exitPrice": "269.2",
+    "quantity": 50
+  },
+  {
+    "id": "2c3b3553-ff61-4da9-bb97-62297e6287d3",
+    "date": "2024-05-31",
+    "entryPrice": "519.95",
+    "exitPrice": "556.45",
+    "quantity": 50
+  },
+  {
+    "id": "a8a63fd1-c994-4ddf-bea8-c4128776afb0",
+    "date": "2024-05-31",
+    "entryPrice": "456.65",
+    "exitPrice": "474.6",
+    "quantity": 50
+  },
+  {
+    "id": "e8e6a3ee-66e4-429a-92d2-f086abe1c1d4",
+    "date": "2024-06-03",
+    "entryPrice": "411.75",
+    "exitPrice": "379.8",
+    "quantity": 50
+  },
+  {
+    "id": "4f565570-318a-49ba-a05b-ef4265388995",
+    "date": "2024-06-03",
+    "entryPrice": "402.3",
+    "exitPrice": "383.3",
+    "quantity": 50
+  },
+  {
+    "id": "865ecea0-608c-4a04-a8f3-8411c00e99e6",
+    "date": "2024-06-03",
+    "entryPrice": "416.55",
+    "exitPrice": "454.4",
+    "quantity": 50
+  },
+  {
+    "id": "677c424e-ad5c-410a-9da0-46c95b3ee075",
+    "date": "2024-06-04",
+    "entryPrice": "472.3",
+    "exitPrice": "436",
+    "quantity": 50
+  },
+  {
+    "id": "70ec8be8-8242-4ae1-9247-d96c74b0f2e5",
+    "date": "2024-06-04",
+    "entryPrice": "469.75",
+    "exitPrice": "433.5",
+    "quantity": 50
+  },
+  {
+    "id": "d189f5d0-160a-41e6-a421-89cab71d51cd",
+    "date": "2024-06-04",
+    "entryPrice": "466.4",
+    "exitPrice": "434.95",
+    "quantity": 50
+  },
+  {
+    "id": "06386110-af4a-4761-a0c6-b9812c3720c5",
+    "date": "2024-06-04",
+    "entryPrice": "494.6",
+    "exitPrice": "455",
+    "quantity": 50
+  },
+  {
+    "id": "37d04727-c8d8-4bd9-88c4-6c42ee38962c",
+    "date": "2024-06-04",
+    "entryPrice": "477.9",
+    "exitPrice": "530.7",
+    "quantity": 50
+  },
+  {
+    "id": "5b30cd70-77e5-4788-8dbc-d16656f9ab8c",
+    "date": "2024-06-05",
+    "entryPrice": "284.6",
+    "exitPrice": "465.65",
+    "quantity": 50
+  },
+  {
+    "id": "3429d7ba-5598-472f-8f3e-bb647f3264a7",
+    "date": "2024-06-06",
+    "entryPrice": "244.9",
+    "exitPrice": "212.35",
+    "quantity": 50
+  },
+  {
+    "id": "6052a7b8-22e7-4275-bdfa-5b916daf1fa2",
+    "date": "2024-06-06",
+    "entryPrice": "229.05",
+    "exitPrice": "198.85",
+    "quantity": 50
+  },
+  {
+    "id": "56c83625-9deb-4aab-bda7-b911801927dc",
+    "date": "2024-06-06",
+    "entryPrice": "189.4",
+    "exitPrice": "159.3",
+    "quantity": 50
+  },
+  {
+    "id": "2d88deee-1a1e-405d-ade0-905079a1b0b0",
+    "date": "2024-06-06",
+    "entryPrice": "247.55",
+    "exitPrice": "214.8",
+    "quantity": 50
+  },
+  {
+    "id": "effb45e1-eb90-4f03-b233-6dec5550f5b8",
+    "date": "2024-06-06",
+    "entryPrice": "201.35",
+    "exitPrice": "168.85",
+    "quantity": 50
+  },
+  {
+    "id": "7de15ccf-fd02-4b84-b596-6857bee392b4",
+    "date": "2024-06-07",
+    "entryPrice": "350",
+    "exitPrice": "319.05",
+    "quantity": 50
+  },
+  {
+    "id": "1e33b352-fbaf-4d45-8090-db26233075a1",
+    "date": "2024-06-07",
+    "entryPrice": "354.9",
+    "exitPrice": "398.4",
+    "quantity": 50
+  },
+  {
+    "id": "5d5bad2a-eb3f-4ee8-9953-10e11fbd89b4",
+    "date": "2024-06-10",
+    "entryPrice": "278.95",
+    "exitPrice": "247.5",
+    "quantity": 50
+  },
+  {
+    "id": "edc7a152-2ca5-46cd-90ee-5401503496b0",
+    "date": "2024-06-10",
+    "entryPrice": "304.5",
+    "exitPrice": "271.3",
+    "quantity": 50
+  },
+  {
+    "id": "b3d0babc-5f4e-4c2e-bd06-7263e694dbfd",
+    "date": "2024-06-11",
+    "entryPrice": "250",
+    "exitPrice": "246.35",
+    "quantity": 50
+  },
+  {
+    "id": "0d5cfe0a-9206-4a85-9efd-0e7b313bb0fa",
+    "date": "2024-06-11",
+    "entryPrice": "249.45",
+    "exitPrice": "305.3",
+    "quantity": 50
+  },
+  {
+    "id": "b5414e7e-49f9-4693-851e-247314099e4c",
+    "date": "2024-06-12",
+    "entryPrice": "243.1",
+    "exitPrice": "212.4",
+    "quantity": 50
+  },
+  {
+    "id": "107c3e34-1768-45de-8720-d38a8b85ae50",
+    "date": "2024-06-12",
+    "entryPrice": "212.8",
+    "exitPrice": "285.45",
+    "quantity": 50
+  },
+  {
+    "id": "939c1510-4db9-4a76-af57-c4ae7e1ec4e2",
+    "date": "2024-06-14",
+    "entryPrice": "243.8",
+    "exitPrice": "226.2",
+    "quantity": 50
+  },
+  {
+    "id": "67121838-851d-4475-8cd3-854c2eb43262",
+    "date": "2024-06-14",
+    "entryPrice": "262.95",
+    "exitPrice": "251.3",
+    "quantity": 50
+  },
+  {
+    "id": "9eec7c28-23ed-443e-bd22-f16a8ee61c92",
+    "date": "2024-06-14",
+    "entryPrice": "234.1",
+    "exitPrice": "264.35",
+    "quantity": 50
+  },
+  {
+    "id": "49f49005-94d4-4b57-b6d1-f2285575ce08",
+    "date": "2024-06-18",
+    "entryPrice": "217.7",
+    "exitPrice": "204.7",
+    "quantity": 50
+  },
+  {
+    "id": "22614835-9775-4b41-a3a5-4116f5dd8093",
+    "date": "2024-06-18",
+    "entryPrice": "234.85",
+    "exitPrice": "226.55",
+    "quantity": 50
+  },
+  {
+    "id": "2c78e558-7ba7-4f12-9512-0896f0184268",
+    "date": "2024-06-18",
+    "entryPrice": "214.15",
+    "exitPrice": "214.75",
+    "quantity": 50
+  },
+  {
+    "id": "a8acf75e-ad73-438c-9b04-b8f857b8ac62",
+    "date": "2024-06-18",
+    "entryPrice": "228.1",
+    "exitPrice": "229.6",
+    "quantity": 50
+  },
+  {
+    "id": "50699524-5b0d-4ef1-9568-e0a500947e91",
+    "date": "2024-06-19",
+    "entryPrice": "240.4",
+    "exitPrice": "220.1",
+    "quantity": 50
+  },
+  {
+    "id": "39b4a0a4-5830-47a5-b162-52040b38b58b",
+    "date": "2024-06-19",
+    "entryPrice": "212.3",
+    "exitPrice": "181.1",
+    "quantity": 50
+  },
+  {
+    "id": "04a8b2cb-91e5-47bf-b8d3-9bcbb7e08fba",
+    "date": "2024-06-19",
+    "entryPrice": "213.7",
+    "exitPrice": "212.25",
+    "quantity": 50
+  },
+  {
+    "id": "e2db0f7b-e8fb-4980-8755-ab8110350a7d",
+    "date": "2024-06-20",
+    "entryPrice": "213.2",
+    "exitPrice": "203.95",
+    "quantity": 50
+  },
+  {
+    "id": "bfc463fc-e263-4b8d-a69f-fa622077d142",
+    "date": "2024-06-20",
+    "entryPrice": "199.75",
+    "exitPrice": "169.05",
+    "quantity": 50
+  },
+  {
+    "id": "4870c1df-8f08-4f9c-a20a-1c672ff7e8dc",
+    "date": "2024-06-20",
+    "entryPrice": "194.7",
+    "exitPrice": "164.3",
+    "quantity": 50
+  },
+  {
+    "id": "befbf0a2-572d-4c55-afbe-b06b7def4c8d",
+    "date": "2024-06-20",
+    "entryPrice": "226.3",
+    "exitPrice": "196.15",
+    "quantity": 50
+  },
+  {
+    "id": "93d61485-646f-4f1e-b930-52111d9e227d",
+    "date": "2024-06-20",
+    "entryPrice": "203.4",
+    "exitPrice": "185.6",
+    "quantity": 50
+  }
+]
