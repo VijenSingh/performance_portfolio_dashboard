@@ -1,0 +1,12 @@
+[
+  {
+    "id": "33860051-94db-4e18-8eab-4c42206bf904",
+    "date": "2024-08-26",
+    "entryPrice": "262.85",
+    "exitPrice": "283.25",
+    "quantity": "45",
+    "profitLoss": 9180,
+    "cumulativePL": 9180,
+    "selectedStrategy": "strategy11"
+  }
+]

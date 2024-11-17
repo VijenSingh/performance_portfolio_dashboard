@@ -5,15 +5,19 @@ import axios from 'axios';
 const UseAllStrategiesData = () => {
   const [data, setData] = useState({
     Sniper_NF: 0,
-    RSI_OP_Buying: 0,
-    Shambhu_Algo: 0,
-    Mahabuddi_Algo: 0,
-    NF_Supertrend: 0,
+    Prop_Desk_Ce_04: 0,
+    Prop_Desk_Ce_01: 0,
+    CE_PE: 0,
+    Range_Breakout: 0,
     Suprita:0,
     Shambhu:0,
     Mahabuddhi:0,
     Vasuki:0,
-    Delta_Netural:0
+    NF_Selling_Long_Term:0,
+    VJS:0,
+    SK:0,
+    DNS:0,
+    SIM:0
 
 
   });
@@ -31,6 +35,10 @@ const UseAllStrategiesData = () => {
         const response8 = await axios.get('/api/trades/strategy8');
         const response9 = await axios.get('/api/trades/strategy9');
         const response10 = await axios.get('/api/trades/strategy10');
+        const response11 = await axios.get('/api/trades/strategy11');
+        const response12 = await axios.get('/api/trades/strategy12');
+        const response13 = await axios.get('/api/trades/strategy13');
+        const response14 = await axios.get('/api/trades/strategy14');
 
         // Calculate cumulative PL for each strategy
         const calculateCumulativePL = (trades) => {
@@ -46,15 +54,20 @@ const UseAllStrategiesData = () => {
 
         setData({
           Sniper_NF: calculateCumulativePL(response1.data),
-          RSI_OP_Buying: calculateCumulativePL(response2.data),
-          Shambhu_Algo: calculateCumulativePL(response3.data),
-          Mahabuddi_Algo: calculateCumulativePL(response4.data),
-          NF_Supertrend: calculateCumulativePL(response5.data),
+          Prop_Desk_Ce_04: calculateCumulativePL(response2.data),
+          Prop_Desk_Ce_01: calculateCumulativePL(response3.data),
+          CE_PE: calculateCumulativePL(response4.data),
+          Range_Breakout: calculateCumulativePL(response5.data),
           Suprita: calculateCumulativePL(response6.data),
           Shambhu: calculateCumulativePL(response7.data),
           Mahabuddhi: calculateCumulativePL(response8.data),
           Vasuki: calculateCumulativePL(response9.data),
-          Delta_Netural: calculateCumulativePL(response10.data),
+          NF_Selling_Long_Term: calculateCumulativePL(response10.data),
+          VJS: calculateCumulativePL(response11.data),
+          SK: calculateCumulativePL(response12.data),
+          DNS: calculateCumulativePL(response13.data),
+          SIM: calculateCumulativePL(response14.data),
+
         });
       } catch (error) {
         console.error('Error fetching trade data:', error);

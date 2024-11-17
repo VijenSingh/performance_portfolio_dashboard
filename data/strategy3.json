@@ -1,82 +1,12 @@
 [
   {
-    "id": "09cad477-8d39-4504-835e-03b8fc1468e5",
-    "date": "2024-06-25",
-    "entryPrice": "339",
-    "exitPrice": "324.2",
-    "quantity": 15,
-    "profitLoss": 630,
-    "cumulativePL": 630,
-    "selectedStrategy": "strategy3"
-  },
-  {
-    "id": "bdc76ee6-1395-4118-8605-2836577771ca",
-    "date": "2024-06-27",
-    "entryPrice": "388.05",
-    "exitPrice": "307.45",
-    "quantity": 15
-  },
-  {
-    "id": "25edc94b-4194-42fe-a277-ac94277664ce",
-    "date": "2024-07-03",
-    "entryPrice": "442.25",
-    "exitPrice": "797.95",
-    "quantity": 15
-  },
-  {
-    "id": "9cc1e4f8-c8e6-45c6-82dd-ea368f63229e",
-    "date": "2024-07-12",
-    "entryPrice": "408.4",
-    "exitPrice": "433.75",
-    "quantity": 15
-  },
-  {
-    "id": "63929f61-0081-40ac-8dee-4053f8b743ee",
-    "date": "2024-07-12",
-    "entryPrice": "437.55",
-    "exitPrice": "384.45",
-    "quantity": 15
-  },
-  {
-    "id": "c0848233-7f4a-44c7-ab74-c94fdb09cf62",
-    "date": "2024-07-18",
-    "entryPrice": "380.2",
-    "exitPrice": "332.25",
-    "quantity": 15
-  },
-  {
     "id": "d9efc715-abd3-4145-adaa-045dc1b864df",
-    "date": "2024-07-18",
-    "entryPrice": "381.6",
-    "exitPrice": "408",
-    "quantity": 15
-  },
-  {
-    "id": "e011caa3-4fc7-46b8-9da3-dc6ec4e91448",
-    "date": "2024-07-26",
-    "entryPrice": "377",
-    "exitPrice": "375.75",
-    "quantity": 15
-  },
-  {
-    "id": "9cd5eaf0-1a71-43a9-bbf5-0e529d3408eb",
-    "date": "2024-07-26",
-    "entryPrice": "374.05",
-    "exitPrice": "344",
-    "quantity": 15
-  },
-  {
-    "id": "94db6c5c-3f2f-4a10-9782-505c14ffecb9",
-    "date": "2024-07-29",
-    "entryPrice": "432.7",
-    "exitPrice": "409.05",
-    "quantity": 15
-  },
-  {
-    "id": "32dcecc1-b414-4c2e-b3dd-99047805a65d",
-    "date": "2024-07-29",
-    "entryPrice": "341",
-    "exitPrice": "262.8",
-    "quantity": 15
+    "date": "2024-08-26",
+    "entryPrice": "436.3",
+    "exitPrice": "474.83",
+    "quantity": "60",
+    "profitLoss": 396,
+    "cumulativePL": 396,
+    "selectedStrategy": "strategy3"
   }
 ]

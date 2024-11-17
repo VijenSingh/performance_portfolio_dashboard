@@ -6,15 +6,19 @@ const Portfolio = ({investment}) => {
   // Sum the final cumulative profit/loss of all strategies
   const totalProfitLoss =
     data.Sniper_NF +
-    data.RSI_OP_Buying +
-    data.Shambhu_Algo +
-    data.Mahabuddi_Algo +
-    data.NF_Supertrend+
+    data.Prop_Desk_Ce_04 +
+    data.Prop_Desk_Ce_01 +
+    data.CE_PE +
+    data.Range_Breakout+
     data.Suprita +
     data.Shambhu +
     data.Mahabuddhi +
     data.Vasuki +
-    data.Delta_Netural;
+    data.NF_Selling_Long_Term+
+    data.VJS+
+    data.SK+
+    data.DNS+
+    data.SIM;
 
   // Calculate the percentage return
   const percentageReturn = ((totalProfitLoss / investment) * 100).toFixed(2);
