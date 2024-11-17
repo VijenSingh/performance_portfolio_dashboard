@@ -50,5 +50,12 @@
     "entryPrice": "421.75",
     "exitPrice": "411.55",
     "quantity": 40
+  },
+  {
+    "id": "7a98184d-c4b1-4cb1-a38e-13fb44bcf9df",
+    "date": "2024-08-01",
+    "entryPrice": "433.15",
+    "exitPrice": "448.25",
+    "quantity": 100
   }
 ]
