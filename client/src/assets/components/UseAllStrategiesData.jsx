@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const UseAllStrategiesData = () => {
+ 
   const [data, setData] = useState({
     Sniper_NF: 0,
     Prop_Desk_Ce_04: 0,
@@ -25,6 +26,7 @@ const UseAllStrategiesData = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        
         const response1 = await axios.get('/api/trades/strategy1');
         const response2 = await axios.get('/api/trades/strategy2');
         const response3 = await axios.get('/api/trades/strategy3');
@@ -39,9 +41,10 @@ const UseAllStrategiesData = () => {
         const response12 = await axios.get('/api/trades/strategy12');
         const response13 = await axios.get('/api/trades/strategy13');
         const response14 = await axios.get('/api/trades/strategy14');
-
+        
         // Calculate cumulative PL for each strategy
         const calculateCumulativePL = (trades) => {
+          
           let cumulativePL = 0;
           trades.forEach((trade) => {
             const profitLoss = parseFloat(

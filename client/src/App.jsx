@@ -14,6 +14,7 @@ function App() {
   const [strategyData, setStrategyData] = useState([]);
  
   useEffect(() => {
+
     fetchDataForStrategy(selectedStrategy);
   }, [selectedStrategy]);
 
@@ -27,6 +28,7 @@ function App() {
   };
 
   const handleChange = (e) => {
+   
     setSelectedStrategy(e.target.value);
   };
 

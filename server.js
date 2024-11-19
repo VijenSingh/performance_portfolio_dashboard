@@ -7,94 +7,71 @@ const fs = require('fs');
 const { v4: uuidv4 } = require('uuid'); 
 const app = express();
 const PORT = process.env.PORT || 5001;
-
+const connectDB = require('./db');
+// Load environment variables
+require('dotenv').config();
 app.use(bodyParser.json());
 
-// Define storage folder
-const storageFolder = path.join(__dirname, 'data');
-if (!fs.existsSync(storageFolder)) {
-  fs.mkdirSync(storageFolder);
-}
+// Connect to MongoDB
+connectDB();
 
-// POST endpoint to add new trade data
-app.post('/api/addTrade', (req, res) => {
-  const tradeData = req.body;
-  const { strategy, date, entryPrice, exitPrice, quantity } = tradeData;
-  const filePath = path.join(storageFolder, `${strategy}.json`);
+const Trade = require('./models/Trade');
+
+app.post('/api/addTrade', async (req, res) => {
+  const { strategy, date, entryPrice, exitPrice, quantity } = req.body;
   try {
-    let data = [];
-    if (fs.existsSync(filePath)) {
-      data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-    }
-    data.push({ id: uuidv4(), date, entryPrice, exitPrice, quantity });
-    fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-    res.status(200).json({ message: 'Trade data added successfully' });
+    const trade = new Trade({ strategy, date, entryPrice, exitPrice, quantity });
+    await trade.save();
+    res.status(201).json({ message: 'Trade added successfully', trade });
   } catch (error) {
     console.error('Error adding trade data:', error);
     res.status(500).json({ error: 'Failed to add trade data' });
   }
 });
 
-// GET endpoint to fetch trade data for a specific strategy
-app.get('/api/trades/:strategy', (req, res) => {
+
+app.get('/api/trades/:strategy', async (req, res) => {
   const { strategy } = req.params;
-  const filePath = path.join(storageFolder, `${strategy}.json`);
   try {
-    if (fs.existsSync(filePath)) {
-      const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-      res.status(200).json(data);
-    } else {
-      res.status(404).json({ error: 'No trade data found for the specified strategy' });
+    const trades = await Trade.find({ strategy });
+    if (trades.length === 0) {
+      return res.status(404).json({ error: 'No trade data found for the specified strategy' });
     }
+    res.status(200).json(trades);
   } catch (error) {
     console.error('Error fetching trade data:', error);
     res.status(500).json({ error: 'Failed to fetch trade data' });
   }
 });
 
-// Route to update a trade
 
-app.put('/api/trades/:id', (req, res) => {
+app.put('/api/trades/:id', async (req, res) => {
   const { id } = req.params;
   const updatedTrade = req.body;
-  const strategy = updatedTrade.selectedStrategy;
-  const filePath = path.join(storageFolder, `${strategy}.json`);
   try {
-    if (fs.existsSync(filePath)) {
-      let data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-      data = data.map(trade => trade.id === id ? { ...trade, ...updatedTrade } : trade);
-      fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-      res.json(data.find(trade => trade.id === id));
-    } else {
-      res.status(404).json({ error: 'No trade data found for the specified strategy' });
+    const trade = await Trade.findByIdAndUpdate(id, updatedTrade, { new: true });
+    if (!trade) {
+      return res.status(404).json({ error: 'Trade not found' });
     }
+    res.json(trade);
   } catch (error) {
     console.error('Error updating trade data:', error);
     res.status(500).json({ error: 'Failed to update trade data' });
   }
 });
 
-// Route to delete a trade
 
-app.delete('/api/trades/:id', (req, res) => {
-  const { id } = req.params;
-  const { strategy } = req.query;
-  const filePath = path.join(storageFolder, `${strategy}.json`);
+app.delete('/api/trades/:id', async (req, res) => {
   try {
-    if (fs.existsSync(filePath)) {
-      let data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-      data = data.filter(trade => trade.id !== id);
-      fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-      res.status(204).send();
-    } else {
-      res.status(404).json({ error: 'No trade data found for the specified strategy' });
-    }
-  } catch (error) {
-    console.error('Error deleting trade data:', error);
-    res.status(500).json({ error: 'Failed to delete trade data' });
+    const { id } = req.params;
+    const trade = await Trade.findByIdAndDelete(id);
+    if (!trade) return res.status(404).send('Trade not found');
+    res.status(200).send('Trade deleted');
+  } catch (err) {
+    console.error('Error deleting trade:', err);
+    res.status(500).send('Internal Server Error');
   }
 });
-
 
 
 // Serve the React app

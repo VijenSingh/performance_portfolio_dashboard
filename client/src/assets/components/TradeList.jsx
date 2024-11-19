@@ -10,7 +10,9 @@ function TradeList({ trades, selectedStrategy, setTrades }) {
   const calculateCumulativePL = () => {
     let cumulativePL = 0;
     return trades.map((trade) => {
+  
       const profitLoss = parseFloat(((trade.exitPrice - trade.entryPrice) * parseInt(trade.quantity)).toFixed(2));
+
       cumulativePL += profitLoss;
       return { ...trade, profitLoss, cumulativePL };
     });
@@ -29,6 +31,7 @@ function TradeList({ trades, selectedStrategy, setTrades }) {
     }
 
     const cumulativePLData = tradesWithCumulativePL.map((trade) => trade.cumulativePL);
+    
     const dates = tradesWithCumulativePL.map((trade) => trade.date);
 
     const ctx = chartRef.current.getContext('2d');
@@ -125,7 +128,7 @@ function TradeList({ trades, selectedStrategy, setTrades }) {
   const handleDelete = async (id) => {
     try {
       await axios.delete(`/api/trades/${id}?strategy=${selectedStrategy}`);
-      setTrades((prevTrades) => prevTrades.filter((trade) => trade.id !== id));
+      setTrades((prevTrades) => prevTrades.filter((trade) => trade._id !== id));
     } catch (error) {
       console.error('Error deleting trade:', error);
     }
@@ -145,9 +148,9 @@ function TradeList({ trades, selectedStrategy, setTrades }) {
     e.preventDefault();
     try {
       const updatedTrade = { ...editTrade, selectedStrategy };
-      const response = await axios.put(`/api/trades/${editTrade.id}`, updatedTrade);
+      const response = await axios.put(`/api/trades/${editTrade._id}`, updatedTrade);
       setTrades((prevTrades) =>
-        prevTrades.map((trade) => (trade.id === editTrade.id ? response.data : trade))
+        prevTrades.map((trade) => (trade._id === editTrade._id ? response.data : trade))
       );
       setIsEditModalOpen(false);
       setEditTrade(null);
@@ -173,7 +176,7 @@ function TradeList({ trades, selectedStrategy, setTrades }) {
         </thead>
         <tbody>
           {currentTrades.map((trade) => (
-            <tr key={trade.id}>
+            <tr key={trade._id}>
               <td>{trade.date}</td>
               <td>{trade.entryPrice}</td>
               <td>{trade.exitPrice}</td>
@@ -182,7 +185,7 @@ function TradeList({ trades, selectedStrategy, setTrades }) {
               <td>{trade.cumulativePL}</td>
               <td>
                 <button onClick={() => handleEdit(trade)}>Edit</button>
-                <button onClick={() => handleDelete(trade.id)}>Delete</button>
+                <button onClick={() => handleDelete(trade._id)}>Delete</button>
               </td>
             </tr>
           ))}
