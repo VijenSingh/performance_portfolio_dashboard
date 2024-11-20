@@ -182,7 +182,7 @@ function TradeList({ trades, selectedStrategy, setTrades }) {
               <td>{trade.exitPrice}</td>
               <td>{trade.quantity}</td>
               <td>{trade.profitLoss}</td>
-              <td>{trade.cumulativePL}</td>
+              <td>{trade.cumulativePL.toFixed(2)}</td>
               <td>
                 <button onClick={() => handleEdit(trade)}>Edit</button>
                 <button onClick={() => handleDelete(trade._id)}>Delete</button>
