@@ -44,6 +44,7 @@ function MaximumLossProfit({ trades }) {
         <p>Number of Losing Trades: <span style={styles.lossText}>{losingTrades}</span></p>
         <p>Maximum Drawdown(%): <span style={styles.lossText}>{maxDrawdown.toFixed(2)}%</span></p>
         <p>Maximum Drawdown (₹): <span style={styles.lossText}>₹{maxDrawdownValue.toFixed(2)}</span></p>
+        <p>Peak Value: <span style={styles.profitText}>₹{peak.toFixed(2)}</span></p>
       </div>
       <RankedStrategies />
     </div>
