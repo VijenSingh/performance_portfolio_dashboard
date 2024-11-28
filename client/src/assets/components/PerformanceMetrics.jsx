@@ -25,7 +25,7 @@ function PerformanceMetrics({ trades }) {
         </p>
       </div>
       <div style={styles.portfolioContainer}>
-        <Portfolio investment={500000} />
+        <Portfolio investment={1500000} />
       </div>
     </div>
   );
