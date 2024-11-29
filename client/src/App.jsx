@@ -6,12 +6,22 @@ import TradeForm from './assets/components/TradeForm';
 import DonutChart from './assets/components/DonutChart';
 import axios from 'axios';
 import './App.css';
+import PortfolioValue from './assets/components/PortfolioValue';
+import UseAllStrategiesDataWithTime from './assets/components/UseAllStrategiesDataWithTime';
 
 
 function App() {
   const [selectedStrategy, setSelectedStrategy] = useState('strategy1');
   const [selectedTab, setSelectedTab] = useState('dataForm');
   const [strategyData, setStrategyData] = useState([]);
+  //const timeSeriesData = UseAllStrategiesDataWithTime();
+  const { dates, strategies } = UseAllStrategiesDataWithTime();
+
+  // Transform `strategies` into heatmap format
+  // const heatmapData = Object.keys(strategies).map((strategy) => ({
+  //   strategy,
+  //   ...strategies[strategy]
+  // }));
  
   useEffect(() => {
 
@@ -68,6 +78,7 @@ function App() {
             <PerformanceMetrics trades={strategyData} />
             <MaximumLossProfit trades={strategyData} />
             <DonutChart  title={"All Strategies Data"} />
+            <PortfolioValue data={{dates, strategies }}/>
           </>
         )}
       </div>

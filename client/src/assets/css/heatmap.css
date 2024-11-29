@@ -1,0 +1,99 @@
+.color-empty {
+    fill: #ebedf0; /* Light gray */
+  }
+  
+  .color-green {
+    fill: #4caf50; /* Green for positive values */
+  }
+  
+  .color-red {
+    fill: #f44336; /* Red for negative values */
+  }
+ 
+
+  /* Adjust size of each day square */
+.react-calendar-heatmap .color-empty,
+.react-calendar-heatmap .color-green,
+.react-calendar-heatmap .color-red {
+  width: 10px; /* Reduce square size */
+  height: 10px;
+  margin: 2px; /* Add spacing between cells */
+  border-radius: 3px; /* Rounded edges for better aesthetics */
+  display: inline-block; /* Ensure proper alignment */
+}
+
+/* Define colors for different data values */
+.react-calendar-heatmap .color-empty {
+  background-color: #ebedf0; /* Neutral/empty color */
+}
+.react-calendar-heatmap .color-green {
+  background-color: #76c7c0; /* Positive value (e.g., profits) */
+}
+.react-calendar-heatmap .color-red {
+  background-color: #ff6b6b; /* Negative value (e.g., losses) */
+}
+
+/* Add gap between rows (weeks) */
+.react-calendar-heatmap .react-calendar-heatmap-week {
+  margin-bottom: 10px; /* Adds spacing between rows of weeks */
+}
+
+/* Highlight current month's first row */
+.react-calendar-heatmap .react-calendar-heatmap-week:first-of-type {
+  border-top: 2px solid #007bff; /* Blue line to mark the start of a month */
+}
+
+/* Tooltip styling */
+#heatmap-tooltip {
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+  color: #fff; /* White text for contrast */
+  padding: 5px 8px; /* Padding for better readability */
+  border-radius: 3px; /* Rounded edges */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Optional: subtle shadow */
+  position: absolute; /* Tooltip positioned absolutely */
+  pointer-events: none; /* Prevent interfering with cursor actions */
+  z-index: 1000;
+  transition: opacity 0.2s ease-in-out; /* Smooth fade-in/out */
+}
+
+/* Month labels below the calendar */
+.heatmap-month-label {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px; /* Space between calendar and month labels */
+  color: #333;
+}
+
+/* Tooltip styling and positioning */
+#heatmap-tooltip {
+  font-size: 12px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .react-calendar-heatmap .color-empty,
+  .react-calendar-heatmap .color-green,
+  .react-calendar-heatmap .color-red {
+    width: 8px; /* Smaller squares for smaller screens */
+    height: 8px;
+    margin: 1px;
+  }
+
+  #heatmap-tooltip {
+    font-size: 10px; /* Smaller tooltip text */
+  }
+}
+
+.react-calendar-heatmap-month-labels {
+  transform: translate(60px, -1px) !important; /* Override default translate */
+}
+
