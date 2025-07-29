@@ -56,12 +56,12 @@ function App() {
           <option value="strategy2">Prop Desk Ce-04</option>
           <option value="strategy3">Prop Desk Ce-01</option>
           <option value="strategy4">CE/PE</option>
-          <option value="strategy5">Range Breakout</option>
+          <option value="strategy5">BTC Daily Option Selling with SL</option>
           <option value="strategy6">Suprita</option>
           <option value="strategy7">Shambhu</option>
           <option value="strategy8">Mahabuddhi</option>
           <option value="strategy9">Vasuki</option>
-          <option value="strategy10">NF Selling Long Term</option>
+          <option value="strategy10">OG BTC Daily Option Selling</option>
           <option value="strategy11">VJS</option>
           <option value="strategy12">SK</option>
           <option value="strategy13">DNS</option>
