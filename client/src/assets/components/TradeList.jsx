@@ -7,6 +7,7 @@ function TradeList({ trades, selectedStrategy, setTrades }) {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [editTrade, setEditTrade] = useState(null);
 
+  console.log("TradeList vjp = >" ,{ trades })
   const calculateCumulativePL = () => {
     let cumulativePL = 0;
     return trades.map((trade) => {

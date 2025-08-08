@@ -8,6 +8,7 @@ import axios from 'axios';
 import './App.css';
 import PortfolioValue from './assets/components/PortfolioValue';
 import UseAllStrategiesDataWithTime from './assets/components/UseAllStrategiesDataWithTime';
+import PerformanceTables from './assets/components/PerformanceTables';
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
   const [selectedTab, setSelectedTab] = useState('dataForm');
   const [strategyData, setStrategyData] = useState([]);
   //const timeSeriesData = UseAllStrategiesDataWithTime();
-  const { dates, strategies } = UseAllStrategiesDataWithTime();
+   const { dates, strategies } = UseAllStrategiesDataWithTime();
 
   // Transform `strategies` into heatmap format
   // const heatmapData = Object.keys(strategies).map((strategy) => ({
@@ -31,9 +32,10 @@ function App() {
   const fetchDataForStrategy = async (strategy) => {
     try {
       const response = await axios.get(`/api/trades/${strategy}`);
+      console.log( "line 35 =>>" , response.data)
       setStrategyData(response.data);
     } catch (error) {
-      console.error('Error fetching trade data:', error);
+      console.error('Error fetching trade data AppJsx 36:', error);
     }
   };
 
@@ -41,6 +43,33 @@ function App() {
    
     setSelectedStrategy(e.target.value);
   };
+
+
+ const  perData=  [
+ 
+  { date: "2025-01-01", pnl: 200 },
+  { date: "2025-01-02", pnl: 120 },
+  { date: "2025-01-03", pnl: -50 },
+  { date: "2025-01-04", pnl: 100 },
+  { date: "2025-01-05", pnl: -120 },
+  { date: "2025-01-06", pnl: -500 },
+  { date: "2025-01-07", pnl: 2000 },
+    { date: "2025-01-08", pnl: 200 },
+  { date: "2025-01-09", pnl: 1200 },
+  { date: "2025-01-10", pnl: -750 },
+  { date: "2025-01-11", pnl: -100 },
+  { date: "2025-01-12", pnl: 1420 },
+  { date: "2025-01-13", pnl: -580 },
+  { date: "2025-01-14", pnl: 2100 },
+   { date: "2025-02-09", pnl: 5120 },
+  { date: "2025-02-10", pnl: -590 },
+  { date: "2025-02-11", pnl: 200 },
+  { date: "2025-03-12", pnl: 120 },
+  { date: "2025-03-13", pnl: -50 },
+  { date: "2025-03-14", pnl: 200 },
+]
+
+
 
   return (
     <div className="App">
@@ -75,10 +104,12 @@ function App() {
         ) : (
           <>
             <TradeList trades={strategyData} selectedStrategy={selectedStrategy} setTrades={setStrategyData}/>
-            <PerformanceMetrics trades={strategyData} />
+             <PerformanceMetrics trades={strategyData} />
             <MaximumLossProfit trades={strategyData} />
             <DonutChart  title={"All Strategies Data"} />
-            <PortfolioValue data={{dates, strategies }}/>
+             <PerformanceTables data = {perData}/>
+            <PortfolioValue data={{dates, strategies }}/> 
+           
           </>
         )}
       </div>
