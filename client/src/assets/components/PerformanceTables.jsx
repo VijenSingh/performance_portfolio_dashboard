@@ -39,9 +39,15 @@ const Title = styled.h2`
   margin-bottom: 0.5rem;
 `;
 
-const PerformanceTables = ({ data }) => {
+const PerformanceTables = ({ trades }) => {
   const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  const data = trades.map(trade => ({
+  date: trade.date,
+  pnl: (trade.exitPrice - trade.entryPrice) * trade.quantity
+}));
+
 
   const calculateDrawdown = (pnlList) => {
     let peak = 0,

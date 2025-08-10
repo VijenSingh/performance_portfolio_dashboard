@@ -44,33 +44,6 @@ function App() {
     setSelectedStrategy(e.target.value);
   };
 
-
- const  perData=  [
- 
-  { date: "2025-01-01", pnl: 200 },
-  { date: "2025-01-02", pnl: 120 },
-  { date: "2025-01-03", pnl: -50 },
-  { date: "2025-01-04", pnl: 100 },
-  { date: "2025-01-05", pnl: -120 },
-  { date: "2025-01-06", pnl: -500 },
-  { date: "2025-01-07", pnl: 2000 },
-    { date: "2025-01-08", pnl: 200 },
-  { date: "2025-01-09", pnl: 1200 },
-  { date: "2025-01-10", pnl: -750 },
-  { date: "2025-01-11", pnl: -100 },
-  { date: "2025-01-12", pnl: 1420 },
-  { date: "2025-01-13", pnl: -580 },
-  { date: "2025-01-14", pnl: 2100 },
-   { date: "2025-02-09", pnl: 5120 },
-  { date: "2025-02-10", pnl: -590 },
-  { date: "2025-02-11", pnl: 200 },
-  { date: "2025-03-12", pnl: 120 },
-  { date: "2025-03-13", pnl: -50 },
-  { date: "2025-03-14", pnl: 200 },
-]
-
-
-
   return (
     <div className="App">
       <header className="App-header">
@@ -107,7 +80,7 @@ function App() {
              <PerformanceMetrics trades={strategyData} />
             <MaximumLossProfit trades={strategyData} />
             <DonutChart  title={"All Strategies Data"} />
-             <PerformanceTables data = {perData}/>
+             <PerformanceTables trades={strategyData}/>
             <PortfolioValue data={{dates, strategies }}/> 
            
           </>
