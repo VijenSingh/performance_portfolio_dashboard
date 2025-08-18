@@ -1,19 +1,19 @@
-import axios from 'axios';
-import React, { useRef, useEffect, useState } from 'react';
-import Chart from 'chart.js/auto';
-import '../css/tradeList.css';
+import axios from "axios";
+import React, { useState } from "react";
+import EquityCurveChart from "./EquityCurveChart";
+import "../css/tradeList.css";
 
 function TradeList({ trades, selectedStrategy, setTrades }) {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [editTrade, setEditTrade] = useState(null);
 
-  console.log("TradeList vjp = >" ,{ trades })
+  // ✅ Calculate Profit/Loss + Cumulative P&L
   const calculateCumulativePL = () => {
     let cumulativePL = 0;
     return trades.map((trade) => {
-  
-      const profitLoss = parseFloat(((trade.exitPrice - trade.entryPrice) * parseInt(trade.quantity)).toFixed(2));
-
+      const profitLoss = parseFloat(
+        ((trade.exitPrice - trade.entryPrice) * parseInt(trade.quantity)).toFixed(2)
+      );
       cumulativePL += profitLoss;
       return { ...trade, profitLoss, cumulativePL };
     });
@@ -21,69 +21,24 @@ function TradeList({ trades, selectedStrategy, setTrades }) {
 
   const tradesWithCumulativePL = calculateCumulativePL();
 
-  const chartRef = useRef(null);
-  const chartInstance = useRef(null);
+  // ✅ Equity data for chart
+  const equityData = tradesWithCumulativePL.map((trade) => ({
+    date: trade.date,
+    cumulativePL: trade.cumulativePL,
+  }));
 
-  useEffect(() => {
-    if (!chartRef.current || tradesWithCumulativePL.length === 0) return;
-
-    if (chartInstance.current !== null) {
-      chartInstance.current.destroy();
-    }
-
-    const cumulativePLData = tradesWithCumulativePL.map((trade) => trade.cumulativePL);
-    
-    const dates = tradesWithCumulativePL.map((trade) => trade.date);
-
-    const ctx = chartRef.current.getContext('2d');
-
-    chartInstance.current = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: dates,
-        datasets: [ 
-          {
-            label: 'Cumulative Profit/Loss',
-            data: cumulativePLData,
-            fill: false,
-            borderColor: 'rgb(75, 112, 192)',
-            tension: 0.1,
-          },
-        ],
-      },
-      options: {
-        scales: {
-          x: {
-            display: true,
-            title: {
-              display: true,
-              text: 'Date',
-            },
-          },
-          y: {
-            display: true,
-            title: {
-              display: true,
-              text: 'Cumulative Profit/Loss',
-            },
-          },
-        },
-      },
-    });
-
-    return () => {
-      if (chartInstance.current !== null) {
-        chartInstance.current.destroy();
-      }
-    };
-  }, [tradesWithCumulativePL]);
-
+  
+  console.log("vjp... ", equityData)
+  // Pagination logic (same as before)
   const [currentPage, setCurrentPage] = useState(1);
   const [tradesPerPage] = useState(10);
 
   const indexOfLastTrade = currentPage * tradesPerPage;
   const indexOfFirstTrade = indexOfLastTrade - tradesPerPage;
-  const currentTrades = tradesWithCumulativePL.slice(indexOfFirstTrade, indexOfLastTrade);
+  const currentTrades = tradesWithCumulativePL.slice(
+    indexOfFirstTrade,
+    indexOfLastTrade
+  );
 
   const totalPages = Math.ceil(tradesWithCumulativePL.length / tradesPerPage);
 
@@ -104,24 +59,25 @@ function TradeList({ trades, selectedStrategy, setTrades }) {
     for (let i = 1; i <= totalPages; i++) {
       pageNumbers.push(i);
     }
-
     return pageNumbers.map((number) => {
-      if (number === 1 || number === totalPages || (number >= currentPage - 1 && number <= currentPage + 1)) {
+      if (
+        number === 1 ||
+        number === totalPages ||
+        (number >= currentPage - 1 && number <= currentPage + 1)
+      ) {
         return (
           <button
             key={number}
             onClick={() => handlePageClick(number)}
-            className={number === currentPage ? 'active' : ''}
+            className={number === currentPage ? "active" : ""}
           >
             {number}
           </button>
         );
       }
-
       if (number === currentPage - 2 || number === currentPage + 2) {
         return <span key={number}>...</span>;
       }
-
       return null;
     });
   };
@@ -131,7 +87,7 @@ function TradeList({ trades, selectedStrategy, setTrades }) {
       await axios.delete(`/api/trades/${id}?strategy=${selectedStrategy}`);
       setTrades((prevTrades) => prevTrades.filter((trade) => trade._id !== id));
     } catch (error) {
-      console.error('Error deleting trade:', error);
+      console.error("Error deleting trade:", error);
     }
   };
 
@@ -149,14 +105,19 @@ function TradeList({ trades, selectedStrategy, setTrades }) {
     e.preventDefault();
     try {
       const updatedTrade = { ...editTrade, selectedStrategy };
-      const response = await axios.put(`/api/trades/${editTrade._id}`, updatedTrade);
+      const response = await axios.put(
+        `/api/trades/${editTrade._id}`,
+        updatedTrade
+      );
       setTrades((prevTrades) =>
-        prevTrades.map((trade) => (trade._id === editTrade._id ? response.data : trade))
+        prevTrades.map((trade) =>
+          trade._id === editTrade._id ? response.data : trade
+        )
       );
       setIsEditModalOpen(false);
       setEditTrade(null);
     } catch (error) {
-      console.error('Error updating trade:', error);
+      console.error("Error updating trade:", error);
     }
   };
 
@@ -192,6 +153,10 @@ function TradeList({ trades, selectedStrategy, setTrades }) {
           ))}
         </tbody>
       </table>
+
+
+
+      {/* Pagination */}
       <div className="pagination">
         <button onClick={prevPage} disabled={currentPage === 1}>
           Previous
@@ -201,10 +166,11 @@ function TradeList({ trades, selectedStrategy, setTrades }) {
           Next
         </button>
       </div>
-      <div className="chart-container">
-        <canvas ref={chartRef}></canvas>
-      </div>
 
+                {/* ✅ Equity Curve Chart */}
+      <EquityCurveChart equityData={equityData} />
+
+      {/* Edit Modal */}
       {isEditModalOpen && (
         <div className="modal">
           <div className="modal-content">
