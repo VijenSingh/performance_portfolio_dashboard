@@ -12,27 +12,44 @@ function MaximumLossProfit({ trades }) {
   const losingTrades = trades.filter(trade => trade.exitPrice < trade.entryPrice).length;
 
   // Calculate equity curve
-  let cumulative = 0;
-  const equityCurve = trades.map(trade => {
-    cumulative += (trade.exitPrice - trade.entryPrice) * trade.quantity;
-    return cumulative;
-  });
+let cumulative = 0;
+const equityCurve = trades.map(trade => {
+  cumulative += (trade.exitPrice - trade.entryPrice) * trade.quantity;
+  return cumulative;
+});
+
+  // let peak = equityCurve[0];
+  // let maxDrawdown = 0; // Percentage drawdown
+  // let maxDrawdownValue = 0; // Absolute monetary drawdown
+
 
   let peak = equityCurve[0];
-  let maxDrawdown = 0; // Percentage drawdown
-  let maxDrawdownValue = 0; // Absolute monetary drawdown
+  let maxDrawdownPct = 0;     // % drawdown
+  let maxDrawdownValue = 0;   // ₹ drawdown
 
-  equityCurve.forEach(value => {
-    if (value > peak) {
-      peak = value; // Update peak
-    }
-    const drawdown = peak - value; // Absolute drawdown in ₹
-    const drawdownPercentage = (drawdown / peak) * 100; // Drawdown in %
-    if (drawdownPercentage > maxDrawdown) {
-      maxDrawdown = drawdownPercentage; // Update max percentage drawdown
-      maxDrawdownValue = drawdown; // Update max absolute drawdown
-    }
-  });
+  // equityCurve.forEach(value => {
+  //   if (value > peak) {
+  //     peak = value; // Update peak
+  //   }
+  //   const drawdown = peak - value; // Absolute drawdown in ₹
+  //   const drawdownPercentage = (drawdown / peak) * 100; // Drawdown in %
+  //   if (drawdownPercentage > maxDrawdown) {
+  //     maxDrawdown = drawdownPercentage; // Update max percentage drawdown
+  //     maxDrawdownValue = drawdown; // Update max absolute drawdown
+  //   }
+  // });
+
+    equityCurve.forEach(value => {
+  // update peak first
+  peak = Math.max(peak, value);
+
+  const ddValue = peak - value;                     // absolute ₹ drawdown
+  const ddPct = peak !== 0 ? (ddValue / Math.abs(peak)) * 100 : 0; // % drawdown
+
+  // track both separately
+  if (ddValue > maxDrawdownValue) maxDrawdownValue = ddValue;
+  if (ddPct > maxDrawdownPct)     maxDrawdownPct   = ddPct;
+});
 
   return (
     <div>
@@ -42,7 +59,7 @@ function MaximumLossProfit({ trades }) {
         <p>Maximum Loss: <span style={styles.lossText}>₹{maxLoss.toFixed(2)}</span></p>
         <p>Number of Profit Trades: <span style={styles.profitText}>{profitTrades}</span></p>
         <p>Number of Losing Trades: <span style={styles.lossText}>{losingTrades}</span></p>
-        <p>Maximum Drawdown(%): <span style={styles.lossText}>{maxDrawdown.toFixed(2)}%</span></p>
+        <p>Maximum Drawdown(%): <span style={styles.lossText}>{maxDrawdownPct.toFixed(2)}%</span></p>
         <p>Maximum Drawdown (₹): <span style={styles.lossText}>₹{maxDrawdownValue.toFixed(2)}</span></p>
         <p>Peak Value: <span style={styles.profitText}>₹{peak.toFixed(2)}</span></p>
       </div>
