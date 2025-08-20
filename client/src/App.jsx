@@ -83,11 +83,24 @@ function App() {
              <PerformanceMetrics trades={strategyData} />
             <MaximumLossProfit trades={strategyData} />
            
-            <RankedStrategies />
+           
               <Portfolio investment = {10000} />
-            <DonutChart  title={"All Strategies Data"} />
-             <PerformanceTables trades={strategyData}/>
-            <PortfolioValue data={{dates, strategies }}/> 
+               
+                <div style={{ marginTop: "40px", zIndex: 2, position: "relative" }}>
+                  <PerformanceTables trades={strategyData} />
+                  </div>
+                  <div style={{ marginTop: "40px", zIndex: 2, position: "relative" }}>
+    <RankedStrategies />
+  </div>
+                <div style={{ marginTop: "40px", zIndex: 2, position: "relative" }}>
+                   <DonutChart  title={"All Strategies Data"} />
+                  </div>
+               
+           <div style={{ marginTop: "40px", zIndex: 2, position: "relative" }}>
+                   <PortfolioValue data={{dates, strategies }}/>
+                  </div>
+           
+           
            
            
            
