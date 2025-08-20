@@ -9,7 +9,9 @@ import './App.css';
 import PortfolioValue from './assets/components/PortfolioValue';
 import UseAllStrategiesDataWithTime from './assets/components/UseAllStrategiesDataWithTime';
 import PerformanceTables from './assets/components/PerformanceTables';
+import Portfolio from './assets/components/Portfolio';
 import RankedStrategies from './assets/components/RankedStrategies';
+
 
 
 function App() {
@@ -80,10 +82,14 @@ function App() {
             <TradeList trades={strategyData} selectedStrategy={selectedStrategy} setTrades={setStrategyData}/>
              <PerformanceMetrics trades={strategyData} />
             <MaximumLossProfit trades={strategyData} />
+           
             <RankedStrategies />
+              <Portfolio investment = {10000} />
             <DonutChart  title={"All Strategies Data"} />
              <PerformanceTables trades={strategyData}/>
             <PortfolioValue data={{dates, strategies }}/> 
+           
+           
            
           </>
         )}

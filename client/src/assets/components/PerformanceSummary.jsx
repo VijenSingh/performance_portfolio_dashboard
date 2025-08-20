@@ -5,13 +5,16 @@ export default function PerformanceSummary({ summary }) {
     <div style={styles.card}>
       <h2 style={styles.title}>Performance Summary</h2>
       <div style={styles.grid}>
-        <KPI label="Maximum Profit" value={`₹${summary.maxProfit.toFixed(2)}`} positive />
-        <KPI label="Maximum Loss" value={`₹${summary.maxLoss.toFixed(2)}`} negative />
+        <KPI label="Maximum Profit" value={`₹ ${summary.maxProfit.toFixed(2)}`} positive />
+        <KPI label="Maximum Loss" value={`₹ ${summary.maxLoss.toFixed(2)}`} negative />
         <KPI label="Profit Trades" value={summary.profitTrades} positive />
         <KPI label="Losing Trades" value={summary.losingTrades} negative />
         <KPI label="Max Drawdown (%)" value={`${summary.maxDrawdownPct.toFixed(2)}%`} negative />
-        <KPI label="Max Drawdown (₹)" value={`₹${summary.maxDrawdownValue.toFixed(2)}`} negative />
-        <KPI label="Peak Value" value={`₹${summary.peakValue.toFixed(2)}`} positive />
+        <KPI label="Max Drawdown (₹)" value={`₹ ${summary.maxDrawdownValue.toFixed(2)}`} negative />
+        <KPI label="Peak Value" value={`₹ ${summary.peakValue.toFixed(2)}`} positive />
+        <KPI label="Winning Streak" value={`${summary.winningStreak}`} positive />
+        <KPI label="Losing Streak" value={`${summary.losingStreak}`} negative />
+
       </div>
     </div>
   );

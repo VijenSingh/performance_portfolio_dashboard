@@ -22,15 +22,17 @@ const Portfolio = ({investment}) => {
 
   // Calculate the percentage return
   const percentageReturn = ((totalProfitLoss / investment) * 100).toFixed(2);
+
   return (
  
      <div style={styles.card}>
+        <div style={styles.container}>
       <h2 style={styles.title}>Portfolio Summary</h2>
       <div style={styles.grid}>
-        <KPI label="Total Profit/Loss" style={styles.profitText} value={`₹${totalProfitLoss.toFixed(2)}`} positive />
+        <KPI label="Total Profit/Loss" style={styles.profitText} value={`₹ ${totalProfitLoss.toFixed(2)}`} positive />
       
-        <KPI label="Percentage Return" value={percentageReturn} positive />
-       
+        <KPI label="Percentage Return" value={`${percentageReturn}%`} positive />
+       </div>
       </div>
     </div>
   );
@@ -64,7 +66,33 @@ function KPI({ label, value, positive, negative }) {
 }
 
 const styles = {
-  card: { marginBottom: 24 },
+  card: { 
+      display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    marginTop: "50px",
+    padding: "20px",
+   },
+
+   pageWrap: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    marginTop: "50px",
+    padding: "20px",
+  },
+  container: {
+    width: "100%",
+    maxWidth: "600px",
+    padding: "20px",
+    textAlign: "center",
+    backgroundColor: "#fff",
+    borderRadius: "10px",
+    boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
+    marginBottom: "20px",
+  },
+
+
   title: { fontSize: 22, fontWeight: 800, marginBottom: 16 },
   grid: {
     display: "grid",
