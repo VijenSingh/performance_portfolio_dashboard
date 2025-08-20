@@ -1,7 +1,6 @@
 import React, { useMemo } from "react";
 import PerformanceSummary from "./PerformanceSummary";
-import EquityCurveChart from "./EquityCurveChart";
-import RankedStrategies from "./RankedStrategies";
+
 
 export default function MaximumLossProfit({ trades }) {
   if (!trades || trades.length === 0) return null;
@@ -58,6 +57,7 @@ export default function MaximumLossProfit({ trades }) {
 
   return (
     <div style={styles.pageWrap}>
+       <div style={styles.container}>
       <PerformanceSummary
         summary={{
           maxProfit,
@@ -70,21 +70,34 @@ export default function MaximumLossProfit({ trades }) {
           
         }}
       />
-      {/* <EquityCurveChart equityData={equityData} ddStartIndex={ddStartIndex} ddEndIndex={ddEndIndex} /> */}
-      <div style={{ marginTop: 24 }}>
-        <RankedStrategies />
-      </div>
+    </div>
     </div>
   );
 }
 
 const styles = {
   pageWrap: {
-    padding: "48px 16px 64px",
-    display: "flex",
+    // padding: "48px 16px 64px",
+    // display: "flex",
+    // flexDirection: "column",
+    // alignItems: "center",
+    // minHeight: "100vh",
+    // background: "linear-gradient(180deg, #f6f9ff 0%, #fdfdfd 100%)",
+
+      display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    minHeight: "100vh",
-    background: "linear-gradient(180deg, #f6f9ff 0%, #fdfdfd 100%)",
+    marginTop: "50px",
+    padding: "20px",
+  },
+   container: {
+    width: "100%",
+    maxWidth: "600px",
+    padding: "20px",
+    textAlign: "center",
+    backgroundColor: "#fff",
+    borderRadius: "10px",
+    boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
+    marginBottom: "20px",
   },
 };

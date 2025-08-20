@@ -14,58 +14,70 @@ const RankedStrategies = () => {
   strategiesArray.sort((a, b) => b.profit - a.profit);
 
   return (
-    <div style={styles.container}>
-      <h2 style={styles.header}>Strategy Rankings by Profit</h2>
-      <ul style={styles.list}>
+    <div style={styles.card}>
+      <h2 style={styles.title}>Strategy Rankings by Profit</h2>
+      <div style={styles.grid}>
         {strategiesArray.map((item) => (
-          <li key={item.strategy} style={styles.listItem}>
-            <span style={styles.strategyText}>{item.strategy}</span>
-            <span style={styles.profitText}>Profit: ₹{item.profit.toFixed(2)}</span>
-          </li>
+          <div
+            key={item.strategy}
+            style={{
+              ...styles.kpiBox,
+              ...(item.profit >= 0 ? styles.kpiPositive : styles.kpiNegative),
+            }}
+          >
+            <div style={styles.kpiLabel}>{item.strategy}</div>
+            <div
+              style={{
+                ...styles.kpiValue,
+                ...(item.profit >= 0 ? styles.kpiValuePositive : styles.kpiValueNegative),
+              }}
+            >
+              ₹{item.profit.toFixed(2)}
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
 
 const styles = {
-  container: {
-    padding: '20px',
-    textAlign: 'center',
-    backgroundColor: '#f0f2f5',
-    borderRadius: '10px',
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
-    maxWidth: '600px',
-    margin: 'auto',
+  card: {
+    background: "linear-gradient(180deg, #ffffff, #f8fbff)",
+    border: "1px solid rgba(0,0,0,0.06)",
+    borderRadius: 16,
+    padding: 20,
+    marginBottom: 24,
+    boxShadow: "0 6px 16px rgba(0,0,0,0.06)",
+    textAlign: "left",
   },
-  header: {
-    fontSize: '28px',
-    fontWeight: 'bold',
-    color: '#333',
-    marginBottom: '20px',
+  title: { fontSize: 22, fontWeight: 800, marginBottom: 16, textAlign: "center" },
+  grid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+    gap: 16,
   },
-  list: {
-    listStyleType: 'none',
-    padding: 0,
+  kpiBox: {
+    background: "linear-gradient(180deg, #ffffff, #f8fbff)",
+    border: "1px solid rgba(0,0,0,0.06)",
+    borderRadius: 16,
+    padding: 16,
+    boxShadow: "0 6px 16px rgba(0,0,0,0.06)",
+    textAlign: "center",
   },
-  listItem: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    padding: '15px',
-    margin: '10px 0',
-    backgroundColor: '#fff',
-    borderRadius: '8px',
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+  kpiPositive: { outline: "1px solid rgba(26,142,95,0.18)" },
+  kpiNegative: { outline: "1px solid rgba(255,59,48,0.18)" },
+
+  kpiLabel: {
+    fontSize: 14,
+    fontWeight: 700,
+    textTransform: "uppercase",
+    marginBottom: 8,
+    color: "#555",
   },
-  strategyText: {
-    fontSize: '18px',
-    color: '#555',
-  },
-  profitText: {
-    fontSize: '18px',
-    fontWeight: 'bold',
-    color: '#1a8e5f',
-  },
+  kpiValue: { fontSize: 20, fontWeight: 800 },
+  kpiValuePositive: { color: "rgb(26, 142, 95)" }, // ✅ Green
+  kpiValueNegative: { color: "rgb(255, 59, 48)" }, // ✅ Red
 };
 
 export default RankedStrategies;

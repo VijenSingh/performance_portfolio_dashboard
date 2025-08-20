@@ -9,6 +9,7 @@ import './App.css';
 import PortfolioValue from './assets/components/PortfolioValue';
 import UseAllStrategiesDataWithTime from './assets/components/UseAllStrategiesDataWithTime';
 import PerformanceTables from './assets/components/PerformanceTables';
+import RankedStrategies from './assets/components/RankedStrategies';
 
 
 function App() {
@@ -32,10 +33,10 @@ function App() {
   const fetchDataForStrategy = async (strategy) => {
     try {
       const response = await axios.get(`/api/trades/${strategy}`);
-      console.log( "line 35 =>>" , response.data)
+     
       setStrategyData(response.data);
     } catch (error) {
-      console.error('Error fetching trade data AppJsx 36:', error);
+      console.error('Error fetching trade data AppJsx:', error);
     }
   };
 
@@ -79,6 +80,7 @@ function App() {
             <TradeList trades={strategyData} selectedStrategy={selectedStrategy} setTrades={setStrategyData}/>
              <PerformanceMetrics trades={strategyData} />
             <MaximumLossProfit trades={strategyData} />
+            <RankedStrategies />
             <DonutChart  title={"All Strategies Data"} />
              <PerformanceTables trades={strategyData}/>
             <PortfolioValue data={{dates, strategies }}/> 

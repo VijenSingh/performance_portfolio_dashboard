@@ -19,13 +19,23 @@ export default function PerformanceSummary({ summary }) {
 
 function KPI({ label, value, positive, negative }) {
   return (
-    <div style={{
-      ...styles.kpiBox,
-      ...(positive ? styles.kpiPositive : {}),
-      ...(negative ? styles.kpiNegative : {}),
-    }}>
+    <div
+      style={{
+        ...styles.kpiBox,
+        ...(positive ? styles.kpiPositive : {}),
+        ...(negative ? styles.kpiNegative : {}),
+      }}
+    >
       <div style={styles.kpiLabel}>{label}</div>
-      <div style={styles.kpiValue}>{value}</div>
+      <div
+        style={{
+          ...styles.kpiValue,
+          ...(positive ? styles.kpiValuePositive : {}),
+          ...(negative ? styles.kpiValueNegative : {}),
+        }}
+      >
+        {value}
+      </div>
     </div>
   );
 }
@@ -47,6 +57,15 @@ const styles = {
   },
   kpiPositive: { outline: "1px solid rgba(26,142,95,0.18)" },
   kpiNegative: { outline: "1px solid rgba(255,59,48,0.18)" },
-  kpiLabel: { fontSize: 12, fontWeight: 700, textTransform: "uppercase", marginBottom: 6 },
+
+  kpiLabel: {
+    fontSize: 12,
+    fontWeight: 700,
+    textTransform: "uppercase",
+    marginBottom: 6,
+    color: "#555",
+  },
   kpiValue: { fontSize: 20, fontWeight: 800 },
+  kpiValuePositive: { color: "rgb(26, 142, 95)" }, // ✅ Green
+  kpiValueNegative: { color: "rgb(255, 59, 48)" }, // ✅ Red
 };
