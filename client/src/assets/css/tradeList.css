@@ -1,152 +1,174 @@
 .trade-list {
-  margin-bottom: 20px;
+  padding: 20px;
+  padding-right: 90px;
+  background: #f7f9fc;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  margin: 20px auto;
+  max-width: 1000px;
 }
 
-.trade-list table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.trade-list th,
-.trade-list td {
-  padding: 8px;
-  border: 1px solid #ddd;
-  text-align: left;
-}
-
-.trade-list th {
-  background-color: #f2f2f2;
-}
-
-.trade-list table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.trade-list table th,
-.trade-list table td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
-}
-
-.trade-list table th {
-  background-color: #f2f2f2;
-}
-
-.trade-list table td button {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 5px 10px;
+.title {
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin: 2px 2px;
+  margin-bottom: 20px;
+  font-size: 22px;
+  color: #2c3e50;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.styled-table thead {
+  background: #2c3e50;
+  color: #fff;
+}
+
+.styled-table th, .styled-table td {
+  padding: 12px 15px;
+  text-align: center;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #ddd;
+  transition: background 0.2s ease;
+}
+
+.styled-table tbody tr:hover {
+  background: #f1f7ff;
+}
+
+.profit {
+  color: green;
+  font-weight: bold;
+}
+
+.loss {
+  color: red;
+  font-weight: bold;
+}
+
+.edit-btn, .delete-btn {
+  border: none;
+  padding: 6px 10px;
+  margin: 2px;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
 }
 
-.trade-list table td button.edit {
-  background-color: #008CBA;
+.edit-btn {
+  background: #3498db;
+  color: #fff;
 }
 
-.trade-list table td button.delete {
-  background-color: #f44336;
+.edit-btn:hover {
+  background: #2980b9;
 }
 
-.trade-list table td button:hover {
-  opacity: 0.8;
+.delete-btn {
+  background: #e74c3c;
+  color: #fff;
 }
 
+.delete-btn:hover {
+  background: #c0392b;
+}
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+.pagination button {
+  border: none;
+  margin: 0 5px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #ecf0f1;
+  transition: background 0.3s ease;
+}
+
+.pagination button:hover {
+  background: #bdc3c7;
+}
+
+.pagination .active {
+  background: #3498db;
+  color: white;
+}
+
+.chart-section {
+  margin-top: 30px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* Modal Styling */
 .modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0,0,0,0.5);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .modal-content {
   background: white;
-  padding: 20px;
-  border-radius: 5px;
-  max-width: 500px;
-  width: 100%;
+  padding: 25px;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
 }
 
-.modal-content form {
-  display: flex;
-  flex-direction: column;
-}
-
-.modal-content label {
-  margin-bottom: 10px;
+.modal-content form label {
+  display: block;
+  margin: 10px 0;
+  font-size: 14px;
 }
 
 .modal-content input {
-  margin-bottom: 10px;
-  padding: 5px;
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
 }
 
-.modal-content button {
-  margin-top: 10px;
-  padding: 10px;
+.modal-actions {
+  margin-top: 15px;
+  text-align: right;
+}
+
+.save-btn {
+  background: #27ae60;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
   border: none;
   cursor: pointer;
 }
 
-.modal-content button[type="submit"] {
-  background-color: #4caf50;
+.cancel-btn {
+  background: #7f8c8d;
   color: white;
-}
-
-.modal-content button[type="button"] {
-  background-color: #f44336;
-  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
   margin-left: 10px;
-}
-
-/* pagination.css */
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px 0;
-}
-
-.pagination button {
-  background-color: #007bff; /* Primary blue color */
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin: 0 5px;
-  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.pagination button:disabled {
-  background-color: #cccccc; /* Disabled button color */
-  cursor: not-allowed;
-}
-
-.pagination button:not(:disabled):hover {
-  background-color: #0056b3; /* Darker blue for hover effect */
-  transform: translateY(-2px);
-}
-
-.pagination button:not(:disabled):active {
-  background-color: #004085; /* Even darker blue for active effect */
-  transform: translateY(0);
-}
-
-.pagination span {
-  margin: 0 10px;
-  font-size: 18px;
-  font-weight: bold;
 }

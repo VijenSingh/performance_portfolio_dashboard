@@ -27,9 +27,7 @@ function TradeList({ trades, selectedStrategy, setTrades }) {
     cumulativePL: trade.cumulativePL,
   }));
 
-  
-  console.log("vjp... ", equityData)
-  // Pagination logic (same as before)
+  // Pagination
   const [currentPage, setCurrentPage] = useState(1);
   const [tradesPerPage] = useState(10);
 
@@ -42,17 +40,9 @@ function TradeList({ trades, selectedStrategy, setTrades }) {
 
   const totalPages = Math.ceil(tradesWithCumulativePL.length / tradesPerPage);
 
-  const nextPage = () => {
-    setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
-  };
-
-  const prevPage = () => {
-    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
-  };
-
-  const handlePageClick = (page) => {
-    setCurrentPage(page);
-  };
+  const nextPage = () => setCurrentPage((p) => Math.min(p + 1, totalPages));
+  const prevPage = () => setCurrentPage((p) => Math.max(p - 1, 1));
+  const handlePageClick = (page) => setCurrentPage(page);
 
   const renderPageNumbers = () => {
     const pageNumbers = [];
@@ -105,10 +95,7 @@ function TradeList({ trades, selectedStrategy, setTrades }) {
     e.preventDefault();
     try {
       const updatedTrade = { ...editTrade, selectedStrategy };
-      const response = await axios.put(
-        `/api/trades/${editTrade._id}`,
-        updatedTrade
-      );
+      const response = await axios.put(`/api/trades/${editTrade._id}`, updatedTrade);
       setTrades((prevTrades) =>
         prevTrades.map((trade) =>
           trade._id === editTrade._id ? response.data : trade
@@ -123,8 +110,8 @@ function TradeList({ trades, selectedStrategy, setTrades }) {
 
   return (
     <div className="trade-list">
-      <h2>Trade List</h2>
-      <table>
+      <h2 className="title">📊 Trade History</h2>
+      <table className="styled-table">
         <thead>
           <tr>
             <th>Date</th>
@@ -132,7 +119,7 @@ function TradeList({ trades, selectedStrategy, setTrades }) {
             <th>Exit Price</th>
             <th>Quantity</th>
             <th>Profit/Loss</th>
-            <th>Cumulative Profit/Loss</th>
+            <th>Cumulative P&L</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -143,32 +130,35 @@ function TradeList({ trades, selectedStrategy, setTrades }) {
               <td>{trade.entryPrice}</td>
               <td>{trade.exitPrice}</td>
               <td>{trade.quantity}</td>
-              <td>{trade.profitLoss}</td>
+              <td className={trade.profitLoss >= 0 ? "profit" : "loss"}>
+                {trade.profitLoss}
+              </td>
               <td>{trade.cumulativePL.toFixed(2)}</td>
               <td>
-                <button onClick={() => handleEdit(trade)}>Edit</button>
-                <button onClick={() => handleDelete(trade._id)}>Delete</button>
+                <button className="edit-btn" onClick={() => handleEdit(trade)}>✏️ Edit</button>
+                <button className="delete-btn" onClick={() => handleDelete(trade._id)}>🗑 Delete</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-
-
       {/* Pagination */}
       <div className="pagination">
-        <button onClick={prevPage} disabled={currentPage === 1}>
-          Previous
-        </button>
+        <button onClick={prevPage} disabled={currentPage === 1}>⏮ Prev</button>
         {renderPageNumbers()}
-        <button onClick={nextPage} disabled={currentPage === totalPages}>
-          Next
-        </button>
+        <button onClick={nextPage} disabled={currentPage === totalPages}>Next ⏭</button>
       </div>
 
-                {/* ✅ Equity Curve Chart */}
-      <EquityCurveChart equityData={equityData} />
+      {/* ✅ Equity Curve */}
+    
+      {/* <div className="chart-section">
+        <h3>📈 Equity Curve</h3>
+        <EquityCurveChart equityData={equityData} />
+      </div> */}
+
+       <EquityCurveChart equityData={equityData} />
+
 
       {/* Edit Modal */}
       {isEditModalOpen && (
@@ -178,44 +168,24 @@ function TradeList({ trades, selectedStrategy, setTrades }) {
             <form onSubmit={handleEditSubmit}>
               <label>
                 Date:
-                <input
-                  type="date"
-                  name="date"
-                  value={editTrade.date}
-                  onChange={handleEditChange}
-                />
+                <input type="date" name="date" value={editTrade.date} onChange={handleEditChange} />
               </label>
               <label>
                 Entry Price:
-                <input
-                  type="number"
-                  name="entryPrice"
-                  value={editTrade.entryPrice}
-                  onChange={handleEditChange}
-                />
+                <input type="number" name="entryPrice" value={editTrade.entryPrice} onChange={handleEditChange} />
               </label>
               <label>
                 Exit Price:
-                <input
-                  type="number"
-                  name="exitPrice"
-                  value={editTrade.exitPrice}
-                  onChange={handleEditChange}
-                />
+                <input type="number" name="exitPrice" value={editTrade.exitPrice} onChange={handleEditChange} />
               </label>
               <label>
                 Quantity:
-                <input
-                  type="number"
-                  name="quantity"
-                  value={editTrade.quantity}
-                  onChange={handleEditChange}
-                />
+                <input type="number" name="quantity" value={editTrade.quantity} onChange={handleEditChange} />
               </label>
-              <button type="submit">Save</button>
-              <button type="button" onClick={() => setIsEditModalOpen(false)}>
-                Cancel
-              </button>
+              <div className="modal-actions">
+                <button type="submit" className="save-btn">💾 Save</button>
+                <button type="button" onClick={() => setIsEditModalOpen(false)} className="cancel-btn">❌ Cancel</button>
+              </div>
             </form>
           </div>
         </div>
