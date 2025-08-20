@@ -84,7 +84,7 @@ function App() {
             <MaximumLossProfit trades={strategyData} />
            
            
-              <Portfolio investment = {10000} />
+              <Portfolio investment = {20000} />
                
                 <div style={{ marginTop: "40px", zIndex: 2, position: "relative" }}>
                   <PerformanceTables trades={strategyData} />
