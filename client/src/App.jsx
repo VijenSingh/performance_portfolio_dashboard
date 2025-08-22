@@ -12,98 +12,133 @@ import PerformanceTables from './assets/components/PerformanceTables';
 import Portfolio from './assets/components/Portfolio';
 import RankedStrategies from './assets/components/RankedStrategies';
 
-
-
 function App() {
   const [selectedStrategy, setSelectedStrategy] = useState('strategy1');
   const [selectedTab, setSelectedTab] = useState('dataForm');
   const [strategyData, setStrategyData] = useState([]);
-  //const timeSeriesData = UseAllStrategiesDataWithTime();
-   const { dates, strategies } = UseAllStrategiesDataWithTime();
+  const [isLoading, setIsLoading] = useState(false);
+  const { dates, strategies } = UseAllStrategiesDataWithTime();
 
-  // Transform `strategies` into heatmap format
-  // const heatmapData = Object.keys(strategies).map((strategy) => ({
-  //   strategy,
-  //   ...strategies[strategy]
-  // }));
- 
   useEffect(() => {
-
     fetchDataForStrategy(selectedStrategy);
   }, [selectedStrategy]);
 
   const fetchDataForStrategy = async (strategy) => {
+    setIsLoading(true);
     try {
       const response = await axios.get(`/api/trades/${strategy}`);
-     
       setStrategyData(response.data);
     } catch (error) {
       console.error('Error fetching trade data AppJsx:', error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleChange = (e) => {
-   
     setSelectedStrategy(e.target.value);
   };
+
+  const strategyOptions = [
+    { value: "strategy1", label: "Sniper NF" },
+    { value: "strategy2", label: "Prop Desk Ce-04" },
+    { value: "strategy3", label: "Prop Desk Ce-01" },
+    { value: "strategy4", label: "CE/PE" },
+    { value: "strategy5", label: "BTC Daily Option Selling with SL" },
+    { value: "strategy6", label: "Suprita" },
+    { value: "strategy7", label: "Shambhu" },
+    { value: "strategy8", label: "Mahabuddhi" },
+    { value: "strategy9", label: "Vasuki" },
+    { value: "strategy10", label: "OG BTC Daily Option Selling" },
+    { value: "strategy11", label: "VJS" },
+    { value: "strategy12", label: "SK" },
+    { value: "strategy13", label: "DNS" },
+    { value: "strategy14", label: "SIM" }
+  ];
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Portfolio Performance Dashboard</h1>
-        <a href='#' onClick={() => setSelectedTab('dashboard')}>Dashboard</a>
-        <a href='#' onClick={() => setSelectedTab('dataForm')}>DataForm</a>
+        <div className="header-content">
+          <h1>Portfolio Performance Dashboard</h1>
+          <nav className="nav-tabs">
+            <button 
+              className={`nav-tab ${selectedTab === 'dashboard' ? 'nav-tab-active' : ''}`}
+              onClick={() => setSelectedTab('dashboard')}
+            >
+              Dashboard
+            </button>
+            <button 
+              className={`nav-tab ${selectedTab === 'dataForm' ? 'nav-tab-active' : ''}`}
+              onClick={() => setSelectedTab('dataForm')}
+            >
+              Data Form
+            </button>
+          </nav>
+        </div>
       </header>
-      <div className="strategy-selector">
-        <label htmlFor="strategy">Select Strategy:</label>
-        <select id="strategy" value={selectedStrategy} name="strategy" onChange={handleChange}>
-          <option value="strategy1">Sniper NF</option>
-          <option value="strategy2">Prop Desk Ce-04</option>
-          <option value="strategy3">Prop Desk Ce-01</option>
-          <option value="strategy4">CE/PE</option>
-          <option value="strategy5">BTC Daily Option Selling with SL</option>
-          <option value="strategy6">Suprita</option>
-          <option value="strategy7">Shambhu</option>
-          <option value="strategy8">Mahabuddhi</option>
-          <option value="strategy9">Vasuki</option>
-          <option value="strategy10">OG BTC Daily Option Selling</option>
-          <option value="strategy11">VJS</option>
-          <option value="strategy12">SK</option>
-          <option value="strategy13">DNS</option>
-          <option value="strategy14">SIM</option>
 
-        </select>
+      <div className="strategy-selector-container">
+        <div className="strategy-selector">
+          <label htmlFor="strategy">Select Trading Strategy:</label>
+          <div className="custom-select">
+            <select id="strategy" value={selectedStrategy} name="strategy" onChange={handleChange}>
+              {strategyOptions.map(option => (
+                <option key={option.value} value={option.value}>{option.label}</option>
+              ))}
+            </select>
+            <div className="select-arrow"></div>
+          </div>
+        </div>
       </div>
-      <div className="container">
+
+      <div className="main-container">
         {selectedTab === "dataForm" ? (
-          <TradeForm onAddTrade={() => fetchDataForStrategy(selectedStrategy)} selectedStrategy={selectedStrategy} />
+          <div className="form-container">
+            <TradeForm onAddTrade={() => fetchDataForStrategy(selectedStrategy)} selectedStrategy={selectedStrategy} />
+          </div>
         ) : (
           <>
-            <TradeList trades={strategyData} selectedStrategy={selectedStrategy} setTrades={setStrategyData}/>
-             <PerformanceMetrics trades={strategyData} />
-            <MaximumLossProfit trades={strategyData} />
-           
-           
-              <Portfolio investment = {20000} />
-               
-                <div style={{ marginTop: "40px", zIndex: 2, position: "relative" }}>
+            {isLoading ? (
+              <div className="loading-container">
+                <div className="loading-spinner"></div>
+                <p>Loading strategy data...</p>
+              </div>
+            ) : (
+              <div className="dashboard-grid">
+                <div className="grid-item full-width">
+                  <TradeList trades={strategyData} selectedStrategy={selectedStrategy} setTrades={setStrategyData}/>
+                </div>
+                
+                <div className="grid-item">
+                  <PerformanceMetrics trades={strategyData} />
+                </div>
+                
+                <div className="grid-item">
+                  <MaximumLossProfit trades={strategyData} />
+                </div>
+                
+                <div className="grid-item">
+                  <Portfolio investment={20000} />
+                </div>
+                
+                <div className="grid-item full-width">
                   <PerformanceTables trades={strategyData} />
-                  </div>
-                  <div style={{ marginTop: "40px", zIndex: 2, position: "relative" }}>
-    <RankedStrategies />
-  </div>
-                <div style={{ marginTop: "40px", zIndex: 2, position: "relative" }}>
-                   <DonutChart  title={"All Strategies Data"} />
-                  </div>
-               
-           <div style={{ marginTop: "40px", zIndex: 2, position: "relative" }}>
-                   <PortfolioValue data={{dates, strategies }}/>
-                  </div>
-           
-           
-           
-           
-           
+                </div>
+                
+                <div className="grid-item">
+                  <RankedStrategies />
+                </div>
+                
+                <div className="grid-item">
+                  <DonutChart title={"All Strategies Data"} />
+                </div>
+                
+                <div className="grid-item full-width">
+                  <PortfolioValue data={{dates, strategies}}/>
+                </div>
+              </div>
+            )}
           </>
         )}
       </div>
